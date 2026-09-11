@@ -1,37 +1,77 @@
 import { Container } from "@/components/Container";
-import { ButtonLink } from "@/components/ui";
+import { ButtonLink, SectionHeading } from "@/components/ui";
+import { EmailCopy } from "@/components/EmailCopy";
 import { site } from "@/lib/data/site";
 
 export function ContactSection() {
   return (
-    <section id="contact" className="scroll-mt-16">
-      <Container className="py-24 sm:py-28">
-        <p className="mb-4 font-mono text-xs uppercase tracking-widest text-accent">
-          Contact
-        </p>
-        <h2 className="max-w-2xl font-display text-3xl leading-tight text-ink sm:text-4xl">
-          Open to Data Engineering, Analytics Engineering, and Data Analyst
-          roles.
-        </h2>
-        <p className="mt-5 max-w-xl text-base leading-relaxed text-ink-muted">
-          The fastest way to reach me is email. I&apos;m also active on
-          LinkedIn and keep every project documented on GitHub.
+    <section id="contact" className="scroll-mt-6">
+      <Container className="py-20 sm:py-28">
+        <SectionHeading eyebrow="Contact" title="Get in touch" />
+
+        <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-muted">
+          {site.careerStatement}
         </p>
 
-        <div className="mt-9 flex flex-wrap items-center gap-4">
-          <ButtonLink href={`mailto:${site.email}`}>
-            Email {site.email}
-          </ButtonLink>
-          <ButtonLink href={site.linkedin} variant="secondary" external>
-            LinkedIn
-          </ButtonLink>
-          <ButtonLink href={site.github} variant="secondary" external>
-            GitHub
-          </ButtonLink>
+        <div className="mt-10 max-w-md space-y-7 border-t border-border pt-8">
+          <div>
+            <p className="mb-3 font-mono text-xs uppercase tracking-widest text-ink-faint">
+              Email
+            </p>
+            <EmailCopy email={site.email} variant="button" />
+          </div>
+
+          <div className="flex flex-wrap gap-x-8 gap-y-4">
+            <div>
+              <p className="mb-2 font-mono text-xs uppercase tracking-widest text-ink-faint">
+                LinkedIn
+              </p>
+              <a
+                href={site.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm text-ink hover:text-accent-strong"
+              >
+                linkedin.com/in/uthrah-rk
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+            <div>
+              <p className="mb-2 font-mono text-xs uppercase tracking-widest text-ink-faint">
+                GitHub
+              </p>
+              <a
+                href={site.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm text-ink hover:text-accent-strong"
+              >
+                github.com/uthrahh
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+            <div>
+              <p className="mb-2 font-mono text-xs uppercase tracking-widest text-ink-faint">
+                Substack
+              </p>
+              <a
+                href={site.substack}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm text-ink hover:text-accent-strong"
+              >
+                @uthrahhh
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+
           {site.resumeAvailable ? (
-            <ButtonLink href={site.resumeUrl} variant="secondary">
-              Download résumé
-            </ButtonLink>
+            <div className="pt-2">
+              <ButtonLink href={site.resumeUrl} variant="secondary">
+                Download résumé
+              </ButtonLink>
+            </div>
           ) : null}
         </div>
       </Container>

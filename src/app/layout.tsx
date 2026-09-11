@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans, IBM_Plex_Serif, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
-import { Nav } from "@/components/Nav";
+import { FloatingNav } from "@/components/FloatingNav";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import { Footer } from "@/components/Footer";
 import { ThemeScript } from "@/components/ThemeScript";
+import { ProjectModalProvider } from "@/components/ProjectModalProvider";
 import { site } from "@/lib/data/site";
 
 const plexSans = IBM_Plex_Sans({
@@ -47,6 +49,7 @@ export const metadata: Metadata = {
     "VIT Chennai",
   ],
   authors: [{ name: site.name, url: site.github }],
+  alternates: { canonical: siteUrl },
   openGraph: {
     type: "website",
     url: siteUrl,
@@ -76,8 +79,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <ThemeScript />
       </head>
       <body className="flex min-h-full flex-col antialiased">
-        <Nav />
-        <main className="flex-1">{children}</main>
+        <ProjectModalProvider>
+          <FloatingNav />
+          <ScrollToTop />
+          <main className="flex-1">{children}</main>
+        </ProjectModalProvider>
         <Footer />
       </body>
     </html>

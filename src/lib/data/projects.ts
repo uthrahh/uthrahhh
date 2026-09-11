@@ -2,6 +2,78 @@ import type { Project } from "@/lib/types";
 
 export const projects: Project[] = [
   {
+    slug: "autcore",
+    title: "AutCore",
+    summary:
+      "An AI-driven autism screening and risk-assessment tool combining oculomotor and facial-behavior analysis, speech and language disfluency analysis, and a conversational screening assistant.",
+    categories: ["AI & GenAI", "Data Analytics & ML"],
+    technologies: [
+      "Python",
+      "TensorFlow",
+      "OpenCV",
+      "MediaPipe",
+      "React",
+      "Next.js",
+      "FastAPI",
+      "Speech Analysis",
+      "Deep Learning",
+      "Computer Vision",
+    ],
+    year: "2025",
+    role: "AI/ML engineer and web dev",
+    context: "Hackathon",
+    featured: true,
+    status: "Award winner",
+    achievement: {
+      rank: "1st Place",
+      event: "HackHub'25",
+      organizer: "IEEE CompSoc VIT-C, GitHub & Devfolio",
+      year: "2025",
+    },
+    cover: {
+      kind: "product",
+      alt: "AutCore screening interface showing real-time facial and speech analysis",
+      aspect: "16/9",
+    },
+    gallery: [
+      { kind: "dashboard", alt: "Symptom profiling and risk evaluation output", aspect: "4/3" },
+      { kind: "team", alt: "Team Perry the Platypus at HackHub'25", aspect: "4/3" },
+    ],
+    links: [],
+    sections: [
+      {
+        heading: "Problem",
+        body: [
+          "Autism screening today is largely subjective and clinically bottlenecked, leaving early signs unassessed for long stretches without a specialist visit. The team set out to make a first-pass screening faster, more objective, and available without one.",
+        ],
+      },
+      {
+        heading: "Solution",
+        body: [
+          "AutCore combines four components into a single screening flow: oculomotor and facial-behavior analysis using computer vision, AI-powered speech and language disfluency analysis, intelligent symptom profiling that turns those signals into a structured risk evaluation, and a conversational assistant that guides the user through the screening and explains the result.",
+        ],
+      },
+      {
+        heading: "My contribution",
+        body: [
+          "Built the web platform with Prasanth V: integrating the computer-vision and speech models behind a real-time interface, handling session state through the multi-step screening flow, and presenting the risk evaluation in a way a non-clinical user could understand.",
+        ],
+      },
+      {
+        heading: "Working under pressure",
+        body: [
+          "The team joined the 36-hour hackathon 12 hours after it started, leaving 24 hours to design, build, and ship a complete, judged product.",
+        ],
+      },
+      {
+        heading: "Outcome",
+        body: [
+          "Placed 1st out of 500 teams that entered HackHub'25, with 60 reaching the final round, as Team Perry the Platypus (with Prannavakhanth A and Lohita Lakshmi L.S), judged by IEEE Computer Society VIT Chennai with GitHub and Devfolio as sponsors.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "aic-erp",
     title: "Startup Incubation ERP",
     summary:
@@ -10,9 +82,18 @@ export const projects: Project[] = [
     technologies: ["Python", "Django", "Django ORM", "PostgreSQL", "Bootstrap 5", "ReportLab", "OpenPyXL"],
     year: "2026",
     role: "Backend engineer (solo)",
-    context: "Software Development Engineer Internship, AIC-CIIC",
+    context: "Software Development Engineer Internship, AIC - Crescent Innovation and Incubation Council",
     featured: true,
     status: "Shipped internally",
+    cover: {
+      kind: "screenshot",
+      alt: "AIC ERP admin dashboard showing startup directory and lifecycle status",
+      aspect: "16/9",
+    },
+    gallery: [
+      { kind: "screenshot", alt: "Startup application review workflow", aspect: "4/3" },
+      { kind: "architecture", alt: "AIC ERP RBAC and module architecture", aspect: "4/3" },
+    ],
     links: [
       { label: "Repository", href: "https://github.com/uthrahh/AIC-Enterprise-Resource-Planning", kind: "repo" },
     ],
@@ -20,7 +101,7 @@ export const projects: Project[] = [
       {
         heading: "Problem",
         body: [
-          "The Crescent Innovation & Incubation Council (AIC-CIIC) ran the entire startup lifecycle (applications, onboarding, lab and hall bookings, mentorship, services, and finance) through spreadsheets, email threads, and WhatsApp. There was no single source of truth, no audit trail, and no way to see incubation-wide metrics without manually reconciling records across tools.",
+          "AIC - Crescent Innovation and Incubation Council ran the entire startup lifecycle (applications, onboarding, lab and hall bookings, mentorship, services, and finance) through spreadsheets, email threads, and WhatsApp. There was no single source of truth, no audit trail, and no way to see incubation-wide metrics without manually reconciling records across tools.",
         ],
       },
       {
@@ -63,9 +144,14 @@ export const projects: Project[] = [
     technologies: ["Python", "Django 6", "PostgreSQL", "Bootstrap 5", "JavaScript"],
     year: "2026",
     role: "Backend engineer (solo)",
-    context: "Software Development Engineer Internship, AIC-CIIC",
+    context: "Software Development Engineer Internship, AIC - Crescent Innovation and Incubation Council",
     featured: false,
     status: "Shipped internally",
+    cover: {
+      kind: "screenshot",
+      alt: "Facility booking calendar showing lab and hall reservations",
+      aspect: "4/3",
+    },
     links: [
       { label: "Repository", href: "https://github.com/uthrahh/AIC-CIIC-Facility-Booking", kind: "repo" },
     ],
@@ -103,9 +189,14 @@ export const projects: Project[] = [
     technologies: ["Python", "FastAPI", "SQLAlchemy", "PostgreSQL", "whatsapp-web.js", "OpenAI API", "Google Gemini API"],
     year: "2026",
     role: "Backend engineer (solo)",
-    context: "Software Development Engineer Internship, AIC-CIIC",
+    context: "Software Development Engineer Internship, AIC - Crescent Innovation and Incubation Council",
     featured: false,
     status: "Shipped internally",
+    cover: {
+      kind: "dashboard",
+      alt: "Worklog automation dashboard showing daily task extraction summary",
+      aspect: "4/3",
+    },
     links: [
       { label: "Repository", href: "https://github.com/uthrahh/AIC-Whatsapp-Automation-Platform", kind: "repo" },
     ],
@@ -144,6 +235,15 @@ export const projects: Project[] = [
     context: "Independent / academic project",
     featured: true,
     status: "Completed",
+    cover: {
+      kind: "product",
+      alt: "Last-Mile Delivery Tracker customer app showing live delivery tracking",
+      aspect: "16/9",
+    },
+    gallery: [
+      { kind: "screenshot", alt: "Admin dashboard with zone and rate card management", aspect: "4/3" },
+      { kind: "architecture", alt: "Pricing engine and assignment engine architecture", aspect: "4/3" },
+    ],
     links: [
       { label: "Repository", href: "https://github.com/uthrahh/Last-Mile-Delivery-Tracker", kind: "repo" },
     ],
@@ -195,10 +295,15 @@ export const projects: Project[] = [
     categories: ["Full-Stack"],
     technologies: ["React 18", "TypeScript", "Vite", "Tailwind CSS", "Express", "PostgreSQL", "JWT", "React Router"],
     year: "2026",
-    role: "Full-stack engineer (solo)",
-    context: "Cloud Computing coursework project, VIT Chennai",
+    role: "Sole developer",
+    context: "Independent product, in development",
     featured: false,
-    status: "In progress",
+    status: "Product in development",
+    cover: {
+      kind: "product",
+      alt: "Women360 dashboard showing unified health and wellness tracking",
+      aspect: "4/3",
+    },
     links: [
       { label: "Repository", href: "https://github.com/uthrahh/Women360", kind: "repo" },
     ],
@@ -243,6 +348,15 @@ export const projects: Project[] = [
     context: "Data Engineering Internship, KaarTech",
     featured: true,
     status: "Completed",
+    cover: {
+      kind: "dashboard",
+      alt: "Power BI executive overview dashboard built on the curated star schema",
+      aspect: "16/9",
+    },
+    gallery: [
+      { kind: "code", alt: "PySpark validation and star-schema build stage", aspect: "4/3" },
+      { kind: "architecture", alt: "Bronze to curated pipeline flow diagram", aspect: "4/3" },
+    ],
     links: [
       { label: "Repository", href: "https://github.com/uthrahh/Reckitt-Dashboard", kind: "repo" },
     ],
@@ -300,6 +414,11 @@ export const projects: Project[] = [
     context: "Data Engineering Internship, KaarTech",
     featured: true,
     status: "In progress",
+    cover: {
+      kind: "architecture",
+      alt: "EV Fleet Lakehouse Medallion architecture: Bronze, Silver, Gold layers",
+      aspect: "16/9",
+    },
     links: [
       { label: "Repository", href: "https://github.com/uthrahh/EV-Fleet-Lakehouse-Platform", kind: "repo" },
       { label: "Requirements & architecture doc", href: "https://github.com/uthrahh/EV-Fleet-Lakehouse-Platform/blob/main/project_requirements.md", kind: "docs" },
@@ -347,6 +466,14 @@ export const projects: Project[] = [
     context: "Data Engineering Internship, KaarTech",
     featured: true,
     status: "Proof of concept",
+    cover: {
+      kind: "architecture",
+      alt: "Query routing architecture between Databricks Genie and the RAG knowledge base",
+      aspect: "16/9",
+    },
+    gallery: [
+      { kind: "documentation", alt: "Business glossary translating SAP fields to business terms", aspect: "4/3" },
+    ],
     links: [
       { label: "Repository", href: "https://github.com/uthrahh/AI-Powered-SAP-ERP-Intelligence-Assistant", kind: "repo" },
     ],
@@ -393,14 +520,19 @@ export const projects: Project[] = [
     slug: "ai-data-engineering-assistant",
     title: "AI Data Operations Assistant (Prototype)",
     summary:
-      "A Streamlit chat prototype that classifies natural-language requests into data-engineering operations, replicating an existing internal assistant's intent layer.",
+      "A Streamlit chat prototype, built collaboratively, that classifies natural-language requests into data-engineering operations, replicating an existing internal assistant's intent layer.",
     categories: ["AI & GenAI", "Data Engineering"],
     technologies: ["Python", "Streamlit", "LLM prompt engineering"],
     year: "2026",
-    role: "Data/AI engineer (solo)",
+    role: "Data/AI engineer, team project",
     context: "Data Engineering Internship, KaarTech",
     featured: false,
     status: "Proof of concept",
+    cover: {
+      kind: "code",
+      alt: "Streamlit chat interface with the intent classification prompt",
+      aspect: "4/3",
+    },
     links: [
       { label: "Repository", href: "https://github.com/uthrahh/Databricks-AIPowered-DataEngg-Assistant", kind: "repo" },
     ],
@@ -415,7 +547,7 @@ export const projects: Project[] = [
         heading: "What was built",
         body: [
           "A Streamlit chat interface backed by an LLM-based intent classifier that maps a free-text request into exactly one of three operations: UPDATE_CONFIG, DATA_REFRESH, or DATA_VALIDATION, using a tightly constrained prompt and a regex fallback to extract a valid category if the model adds surrounding text.",
-          "Built as a deliberate replication exercise: first studied the architecture and workflow of an existing internal AI data-operations assistant, then rebuilt its intent-classification layer independently to understand the design end to end.",
+          "Built as a deliberate replication exercise with the team: first studied the architecture and workflow of an existing internal AI data-operations assistant, then rebuilt its intent-classification layer collaboratively to understand the design end to end.",
         ],
       },
       {
@@ -438,6 +570,14 @@ export const projects: Project[] = [
     context: "Independent project",
     featured: true,
     status: "Completed",
+    cover: {
+      kind: "code",
+      alt: "Optimizer output: selected loans and properties under budget constraint",
+      aspect: "16/9",
+    },
+    gallery: [
+      { kind: "dashboard", alt: "Risk-adjusted return distribution across the loan portfolio", aspect: "4/3" },
+    ],
     links: [
       { label: "Repository", href: "https://github.com/uthrahh/Capital-Allocation---Risk-Optimization-Platform", kind: "repo" },
     ],
@@ -481,14 +621,19 @@ export const projects: Project[] = [
     slug: "budget-tracker",
     title: "Budget Tracker",
     summary:
-      "A shared-expense and settlement tracker with WhatsApp-based transaction capture, budgets, categories, and refunds, containerized with Docker.",
+      "A shared-expense and settlement SaaS product under active development, with WhatsApp-based transaction capture, budgets, categories, and refunds, containerized with Docker.",
     categories: ["Software Engineering"],
     technologies: ["Python", "FastAPI", "PostgreSQL", "Alembic", "Docker", "WhatsApp integration"],
     year: "2026",
-    role: "Backend engineer (solo)",
-    context: "Independent project",
+    role: "Sole developer",
+    context: "Independent product, in development",
     featured: false,
-    status: "Completed",
+    status: "Product in development",
+    cover: {
+      kind: "screenshot",
+      alt: "Budget Tracker dashboard showing shared expenses and settlements",
+      aspect: "4/3",
+    },
     links: [
       { label: "Repository", href: "https://github.com/uthrahh/Budget-Tracker", kind: "repo" },
     ],
@@ -496,7 +641,7 @@ export const projects: Project[] = [
       {
         heading: "What it does",
         body: [
-          "A FastAPI backend for tracking personal and shared expenses: budgets, spending categories, transactions, people, settlements between people, and refunds, with reporting and export.",
+          "A FastAPI backend for tracking personal and shared expenses: budgets, spending categories, transactions, people, settlements between people, and refunds, with reporting and export. Being built as a standalone product, not a one-off script.",
           "A WhatsApp listener mirrors the pattern used in the AIC worklog project: transactions can be captured from natural-language messages rather than requiring manual form entry every time.",
         ],
       },
@@ -507,20 +652,31 @@ export const projects: Project[] = [
           "Fully containerized with Docker and docker-compose for local and deployment parity.",
         ],
       },
+      {
+        heading: "Status",
+        body: [
+          "Core backend functionality is built and tested; still under active, ongoing development as a product rather than a finished, closed project.",
+        ],
+      },
     ],
   },
   {
     slug: "data-pipeline-sentinel",
     title: "Data Pipeline Sentinel (UI Concept)",
     summary:
-      "A frontend concept for a data-pipeline monitoring dashboard: KPI cards, a pipeline status table, and tabbed navigation.",
+      "A team-built proof of concept for a data-pipeline monitoring dashboard: KPI cards, a pipeline status table, and tabbed navigation.",
     categories: ["Data Analytics & ML"],
     technologies: ["React", "Vite"],
     year: "2026",
-    role: "Frontend (solo)",
-    context: "Independent exploration",
+    role: "Team project / POC",
+    context: "Data Engineering Internship, KaarTech",
     featured: false,
     status: "Proof of concept",
+    cover: {
+      kind: "dashboard",
+      alt: "Data Pipeline Sentinel UI concept with KPI cards and pipeline status table",
+      aspect: "4/3",
+    },
     links: [
       { label: "Repository", href: "https://github.com/uthrahh/data_pipeline_sentinel", kind: "repo" },
     ],
@@ -528,8 +684,8 @@ export const projects: Project[] = [
       {
         heading: "What it is",
         body: [
-          "A component-level UI exploration for what a pipeline-monitoring dashboard could look like: a header, tabbed navigation, KPI summary cards, and a pipeline status table.",
-          "Frontend only, with no backend or live data. It's an interface concept rather than a working monitoring tool, built to explore the layout and information hierarchy a real version would need.",
+          "A team-built proof of concept exploring what a pipeline-monitoring dashboard could look like: a header, tabbed navigation, KPI summary cards, and a pipeline status table.",
+          "Frontend-focused, with no backend or live data behind it yet. It's an interface concept rather than a working monitoring tool, built with the team to explore the layout and information hierarchy a real version would need.",
         ],
       },
     ],

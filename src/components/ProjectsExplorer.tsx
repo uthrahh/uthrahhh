@@ -12,7 +12,13 @@ const CATEGORIES: ProjectCategory[] = [
   "Data Analytics & ML",
 ];
 
-export function ProjectsExplorer({ projects }: { projects: Project[] }) {
+export function ProjectsExplorer({
+  projects,
+  onOpenProject,
+}: {
+  projects: Project[];
+  onOpenProject: (slug: string) => void;
+}) {
   const [query, setQuery] = useState("");
   const [activeCategories, setActiveCategories] = useState<ProjectCategory[]>([]);
 
@@ -54,8 +60,8 @@ export function ProjectsExplorer({ projects }: { projects: Project[] }) {
 
   return (
     <div>
-      <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-        <div className="relative w-full sm:max-w-xs">
+      <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+        <div className="relative w-full lg:max-w-xs">
           <label htmlFor="project-search" className="sr-only">
             Search projects
           </label>
@@ -69,40 +75,39 @@ export function ProjectsExplorer({ projects }: { projects: Project[] }) {
           />
         </div>
 
-        {hasActiveFilters ? (
-          <button
-            type="button"
-            onClick={reset}
-            className="self-start text-sm font-medium text-ink-muted underline decoration-border-strong underline-offset-4 hover:text-accent-strong sm:self-auto"
-          >
-            Reset filters
-          </button>
-        ) : null}
-      </div>
-
-      <div
-        className="mt-5 flex flex-wrap gap-2"
-        role="group"
-        aria-label="Filter by category"
-      >
-        {CATEGORIES.map((cat) => {
-          const active = activeCategories.includes(cat);
-          return (
+        <div
+          className="flex flex-wrap items-center gap-2 lg:justify-end"
+          role="group"
+          aria-label="Filter by category"
+        >
+          {CATEGORIES.map((cat) => {
+            const active = activeCategories.includes(cat);
+            return (
+              <button
+                key={cat}
+                type="button"
+                onClick={() => toggleCategory(cat)}
+                aria-pressed={active}
+                className={`min-h-9 rounded-sm border px-3.5 py-1.5 text-sm transition-colors ${
+                  active
+                    ? "border-accent bg-accent-soft text-accent-strong"
+                    : "border-border text-ink-muted hover:border-border-strong hover:text-ink"
+                }`}
+              >
+                {cat}
+              </button>
+            );
+          })}
+          {hasActiveFilters ? (
             <button
-              key={cat}
               type="button"
-              onClick={() => toggleCategory(cat)}
-              aria-pressed={active}
-              className={`min-h-9 rounded-sm border px-3.5 py-1.5 text-sm transition-colors ${
-                active
-                  ? "border-accent bg-accent-soft text-accent-strong"
-                  : "border-border text-ink-muted hover:border-border-strong hover:text-ink"
-              }`}
+              onClick={reset}
+              className="text-sm font-medium text-ink-muted underline decoration-border-strong underline-offset-4 hover:text-accent-strong"
             >
-              {cat}
+              Reset
             </button>
-          );
-        })}
+          ) : null}
+        </div>
       </div>
 
       <p className="mt-6 text-sm text-ink-faint" role="status">
@@ -112,7 +117,11 @@ export function ProjectsExplorer({ projects }: { projects: Project[] }) {
       {filtered.length > 0 ? (
         <div className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
+            <ProjectCard
+              key={project.slug}
+              project={project}
+              onOpen={() => onOpenProject(project.slug)}
+            />
           ))}
         </div>
       ) : (

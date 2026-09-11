@@ -74,6 +74,7 @@
 
 html {
   color-scheme: light;
+  scroll-behavior: smooth;
 }
 
 :root[data-theme="dark"] {
@@ -124,4 +125,85 @@ body {
 .prose-body a:hover {
   text-decoration-color: var(--accent);
   color: var(--accent-strong);
+}
+
+.media-placeholder {
+  background-image: repeating-linear-gradient(
+    135deg,
+    var(--border) 0,
+    var(--border) 1px,
+    transparent 1px,
+    transparent 10px
+  );
+  background-blend-mode: normal;
+}
+
+:root[data-theme="dark"] .media-placeholder {
+  opacity: 0.92;
+}
+
+/* Ambient, slow-moving technical grid used only behind the hero. */
+@keyframes grid-drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 64px 64px;
+  }
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: 0.35;
+  animation: grid-drift 40s linear infinite;
+}
+
+:root[data-theme="dark"] .hero-grid {
+  opacity: 0.2;
+}
+
+/* Role ticker in the hero: a continuous horizontal belt, not a rotating
+   shape. The track holds two back-to-back, pixel-identical copies of the
+   role sequence; animating transform: translateX(-50%) linearly moves it
+   by exactly one copy's width, so the loop has no visible seam. The
+   viewport clips it and fades both edges so labels appear to scroll
+   through a fixed focal window rather than starting/stopping abruptly. */
+.role-ticker-viewport {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 12%,
+    black 88%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 12%,
+    black 88%,
+    transparent
+  );
+}
+
+.role-ticker-track {
+  animation: role-ticker-scroll 16s linear infinite;
+}
+
+@keyframes role-ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .role-ticker-track {
+    animation: none;
+    transform: translateX(0);
+  }
 }

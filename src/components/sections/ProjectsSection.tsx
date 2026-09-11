@@ -1,0 +1,30 @@
+"use client";
+
+import { Container } from "@/components/Container";
+import { SectionHeading } from "@/components/ui";
+import { ProjectsExplorer } from "@/components/ProjectsExplorer";
+import { useProjectModal } from "@/components/ProjectModalProvider";
+import { projects } from "@/lib/data/projects";
+
+export function ProjectsSection() {
+  const openProject = useProjectModal();
+  const sorted = [...projects].sort((a, b) =>
+    a.featured === b.featured ? 0 : a.featured ? -1 : 1
+  );
+
+  return (
+    <section id="projects" className="scroll-mt-6 border-b border-border">
+      <Container className="py-20 sm:py-24">
+        <SectionHeading
+          eyebrow="Projects"
+          title="Projects"
+          description="Thirteen projects spanning data engineering, backend systems, GenAI, and applied ML. Every entry links to real source and documents the actual scope, including what's still in progress."
+        />
+
+        <div className="mt-10">
+          <ProjectsExplorer projects={sorted} onOpenProject={openProject} />
+        </div>
+      </Container>
+    </section>
+  );
+}

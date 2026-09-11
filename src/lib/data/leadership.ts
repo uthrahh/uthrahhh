@@ -1,6 +1,6 @@
-import type { HackathonEntry, LeadershipRole } from "@/lib/types";
+import type { ActivityEntry, HackathonEntry } from "@/lib/types";
 
-export const clubLeadership: LeadershipRole[] = [
+export const clubLeadership: ActivityEntry[] = [
   {
     org: "Open Source Programming Club, VIT Chennai",
     orgUrl: "https://www.linkedin.com/company/opensource-programming-club-vitc/",
@@ -18,25 +18,16 @@ export const clubLeadership: LeadershipRole[] = [
     start: "April 2025",
     end: "April 2026",
     detail: [
-      "Led a 250+ member technical community and helped scale the club to the #1 position among 110+ student clubs within two years of its founding.",
+      "Lead a 250+ member technical community and helped scale the club to the #1 position among 110+ student clubs within two years of its founding.",
       "Organized 3 national-level hackathons and 10+ workshops, competitions, and technical events across the tenure.",
       "Coordinated cross-functional teams spanning operations, design, technical, and outreach.",
       "Head of Organizing Committee for OSPC's four-event TechnoVIT'25 portfolio (Agentic AI, Stranger Clues, Craft My Site, Game Jam); each event drew 120-170 participants. Built and guided event-specific teams and maintained documentation.",
       "Core coordination team for Spectrum'25, OSPC's flagship annual event (11-12 April, MG Auditorium): design, registration, sponsorship, and finance.",
       "Core coordination team for Glytch'25, a national-level hackathon at MG Auditorium (5-6 December): planning, execution, and liaison with institutional bodies.",
       "Student coordinator for VOID.v1, a TechnoVIT hackathon at MG Auditorium (28-29 October): registration process, design, and on-day logistics.",
-    ],
-  },
-  {
-    org: "Open Source Programming Club, VIT Chennai",
-    orgUrl: "https://www.linkedin.com/company/opensource-programming-club-vitc/",
-    role: "Secretary (Non-Technical)",
-    start: "April 2025",
-    end: "Present",
-    detail: [
       "Coordinate communication between the management, social media, marketing, and design teams; manage the club's FFCS wing.",
       "Led recruitment of team leads across departments and ensured timely, high-quality delivery from technical departments.",
-      "Co-organized Spectrum'25, the club's flagship annual event.",
+      "Co-organized Spectrum'25, the club's flagship annual event."
     ],
   },
   {
@@ -61,17 +52,7 @@ export const clubLeadership: LeadershipRole[] = [
   },
 ];
 
-export const communityRoles: LeadershipRole[] = [
-  {
-    org: "Rotaract Club of VIT Chennai",
-    role: "Rotaractor, Women Empowerment Avenue",
-    start: "July 2025",
-    end: "Present",
-    detail: [
-      "Proposed and leading an all-women hackathon initiative in collaboration with OSPC.",
-      "Proposed and developing a social-service-focused hackathon, also in collaboration with OSPC.",
-    ],
-  },
+export const community: ActivityEntry[] = [
   {
     org: "U&I Trust",
     role: "Student Mentor Volunteer",
@@ -79,16 +60,6 @@ export const communityRoles: LeadershipRole[] = [
     end: "Present",
     detail: [
       "Provide weekly academic tutoring and mentorship to a group of primary school students, supporting their educational progress and personal development.",
-    ],
-  },
-  {
-    org: "Microsoft Innovations Club, VIT Chennai",
-    role: "Management Member",
-    start: "October 2024",
-    end: "July 2025",
-    detail: [
-      "Drafted event proposals and contributed to the club's annual report.",
-      "Assisted in planning the Vibrance event and supported marketing activities.",
     ],
   },
 ];
