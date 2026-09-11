@@ -165,45 +165,67 @@ body {
   opacity: 0.2;
 }
 
-/* Role ticker in the hero: a continuous horizontal belt, not a rotating
-   shape. The track holds two back-to-back, pixel-identical copies of the
-   role sequence; animating transform: translateX(-50%) linearly moves it
-   by exactly one copy's width, so the loop has no visible seam. The
-   viewport clips it and fades both edges so labels appear to scroll
-   through a fixed focal window rather than starting/stopping abruptly. */
-.role-ticker-viewport {
+/* Role cylinder in the hero: a genuine rotating drum, not a triangular
+   prism. Each character of the role sequence is its own thin face placed
+   with rotateY + translateZ around a shared vertical axis (see
+   RoleCylinder.tsx for the per-character transform math); with one face per
+   character the silhouette reads as a smooth curve, not a flat polygon.
+   The ring spins continuously so every role drifts through the same
+   front-facing reading position in turn, all styled identically. */
+.role-cylinder-scene {
+  overflow: hidden;
   mask-image: linear-gradient(
     to right,
     transparent,
-    black 12%,
-    black 88%,
+    black 20%,
+    black 80%,
     transparent
   );
   -webkit-mask-image: linear-gradient(
     to right,
     transparent,
-    black 12%,
-    black 88%,
+    black 20%,
+    black 80%,
     transparent
   );
 }
 
-.role-ticker-track {
-  animation: role-ticker-scroll 16s linear infinite;
+.role-cylinder-ring {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  transform-style: preserve-3d;
+  animation: role-cylinder-spin 22s linear infinite;
+  transition: opacity 0.4s ease;
 }
 
-@keyframes role-ticker-scroll {
+.role-cylinder-char {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  line-height: 1.6em;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+@keyframes role-cylinder-spin {
   from {
-    transform: translateX(0);
+    transform: rotateY(0deg);
   }
   to {
-    transform: translateX(-50%);
+    transform: rotateY(360deg);
   }
+}
+
+.role-cylinder-static {
+  display: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .role-ticker-track {
-    animation: none;
-    transform: translateX(0);
+  .role-cylinder-scene {
+    display: none;
+  }
+  .role-cylinder-static {
+    display: block;
   }
 }

@@ -6,6 +6,6 @@ export const interests =
 export const languages: LanguageEntry[] = [
   { name: "English", proficiency: "Full professional proficiency" },
   { name: "Tamil", proficiency: "Native proficiency" },
-  { name: "Hindi", proficiency: "Basic proficiency" },
-  { name: "German", proficiency: "Elementary proficiency" },
+  { name: "Hindi", proficiency: "Basic understanding" },
+  { name: "German", proficiency: "Basic reading comprehension" },
 ];

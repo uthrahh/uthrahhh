@@ -12,6 +12,14 @@ const CATEGORIES: ProjectCategory[] = [
   "Data Analytics & ML",
 ];
 
+function FilterIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" className="shrink-0">
+      <path d="M1.5 3.5h11M3.5 7h7M5.5 10.5h3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 export function ProjectsExplorer({
   projects,
   onOpenProject,
@@ -76,10 +84,23 @@ export function ProjectsExplorer({
         </div>
 
         <div
-          className="flex flex-wrap items-center gap-2 lg:justify-end"
+          className="flex flex-nowrap items-center gap-x-5 gap-y-2 overflow-x-auto py-1 lg:justify-end"
           role="group"
           aria-label="Filter by category"
         >
+          <FilterIcon />
+          <button
+            type="button"
+            onClick={() => setActiveCategories([])}
+            aria-pressed={activeCategories.length === 0}
+            className={`shrink-0 whitespace-nowrap text-sm underline-offset-4 transition-colors ${
+              activeCategories.length === 0
+                ? "text-ink underline decoration-accent"
+                : "text-ink-faint hover:text-ink"
+            }`}
+          >
+            All
+          </button>
           {CATEGORIES.map((cat) => {
             const active = activeCategories.includes(cat);
             return (
@@ -88,10 +109,10 @@ export function ProjectsExplorer({
                 type="button"
                 onClick={() => toggleCategory(cat)}
                 aria-pressed={active}
-                className={`min-h-9 rounded-sm border px-3.5 py-1.5 text-sm transition-colors ${
+                className={`shrink-0 whitespace-nowrap text-sm underline-offset-4 transition-colors ${
                   active
-                    ? "border-accent bg-accent-soft text-accent-strong"
-                    : "border-border text-ink-muted hover:border-border-strong hover:text-ink"
+                    ? "text-accent-strong underline decoration-accent"
+                    : "text-ink-faint hover:text-ink"
                 }`}
               >
                 {cat}
@@ -102,7 +123,7 @@ export function ProjectsExplorer({
             <button
               type="button"
               onClick={reset}
-              className="text-sm font-medium text-ink-muted underline decoration-border-strong underline-offset-4 hover:text-accent-strong"
+              className="shrink-0 whitespace-nowrap text-sm font-medium text-ink-muted underline decoration-border-strong underline-offset-4 hover:text-accent-strong"
             >
               Reset
             </button>

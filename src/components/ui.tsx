@@ -15,21 +15,23 @@ export function SectionHeading({
   description,
 }: {
   eyebrow?: string;
-  title: string;
+  title?: string;
   description?: string;
 }) {
   return (
     <div className="max-w-2xl">
       {eyebrow ? (
-        <p className="mb-3 font-mono text-xs uppercase tracking-widest text-accent">
+        <p className="mb-1 font-mono text-sm font-medium uppercase tracking-widest text-accent">
           {eyebrow}
         </p>
       ) : null}
-      <h2 className="font-display text-3xl leading-tight text-ink sm:text-4xl">
-        {title}
-      </h2>
+      {title ? (
+        <h2 className="font-display text-3xl leading-tight text-ink sm:text-4xl">
+          {title}
+        </h2>
+      ) : null}
       {description ? (
-        <p className="mt-4 text-base leading-relaxed text-ink-muted">
+        <p className={`${title ? "mt-4" : "mt-3"} max-w-xl text-[15px] leading-relaxed text-ink-muted`}>
           {description}
         </p>
       ) : null}

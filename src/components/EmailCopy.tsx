@@ -5,9 +5,11 @@ import { useState } from "react";
 export function EmailCopy({
   email,
   variant = "inline",
+  className = "",
 }: {
   email: string;
   variant?: "inline" | "button";
+  className?: string;
 }) {
   const [copied, setCopied] = useState(false);
 
@@ -25,7 +27,7 @@ export function EmailCopy({
   const styles =
     variant === "button"
       ? "min-h-11 rounded-sm bg-ink px-5 py-2.5 text-sm font-medium text-paper transition-colors hover:bg-accent-strong"
-      : "text-sm text-ink-muted transition-colors hover:text-accent-strong";
+      : `text-sm transition-colors ${className || "text-ink-muted hover:text-accent-strong"}`;
 
   return (
     <span className={`${base} ${styles}`}>

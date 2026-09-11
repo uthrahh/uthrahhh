@@ -20,28 +20,28 @@ export const skills: SkillGroup[] = [
     ],
   },
   {
-    category: "Data & BI",
-    skills: ["Power BI", "DAX", "Tableau", "Pandas", "NumPy", "Feature engineering"],
-  },
-  {
     category: "Machine Learning",
     skills: ["XGBoost", "Model evaluation (ROC-AUC)", "Linear/integer programming (Pyomo)"],
-  },
-  {
-    category: "AI & GenAI",
-    skills: ["RAG", "Vector search", "Databricks Genie", "LLM prompt engineering", "OpenAI / Gemini APIs"],
   },
   {
     category: "Backend & APIs",
     skills: ["Django", "FastAPI", "Express", "REST API design", "RBAC", "JWT authentication"],
   },
   {
-    category: "Databases",
-    skills: ["PostgreSQL", "SQLite"],
+    category: "Data & BI",
+    skills: ["Power BI", "DAX", "Tableau", "Pandas", "NumPy", "Feature engineering"],
+  },
+  {
+    category: "AI & GenAI",
+    skills: ["RAG", "Vector search", "Databricks Genie", "LLM prompt engineering", "OpenAI / Gemini APIs"],
   },
   {
     category: "Frontend",
     skills: ["React", "TypeScript", "Tailwind CSS", "Bootstrap 5"],
+  },
+  {
+    category: "Databases",
+    skills: ["PostgreSQL", "SQLite"],
   },
   {
     category: "Cloud & Tools",

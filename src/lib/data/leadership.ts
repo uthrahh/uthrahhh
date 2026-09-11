@@ -18,16 +18,11 @@ export const clubLeadership: ActivityEntry[] = [
     start: "April 2025",
     end: "April 2026",
     detail: [
-      "Lead a 250+ member technical community and helped scale the club to the #1 position among 110+ student clubs within two years of its founding.",
+      "Led a 250+ member technical community and helped scale the club to the #1 position among 110+ student clubs within two years of its founding.",
       "Organized 3 national-level hackathons and 10+ workshops, competitions, and technical events across the tenure.",
       "Coordinated cross-functional teams spanning operations, design, technical, and outreach.",
-      "Head of Organizing Committee for OSPC's four-event TechnoVIT'25 portfolio (Agentic AI, Stranger Clues, Craft My Site, Game Jam); each event drew 120-170 participants. Built and guided event-specific teams and maintained documentation.",
-      "Core coordination team for Spectrum'25, OSPC's flagship annual event (11-12 April, MG Auditorium): design, registration, sponsorship, and finance.",
-      "Core coordination team for Glytch'25, a national-level hackathon at MG Auditorium (5-6 December): planning, execution, and liaison with institutional bodies.",
-      "Student coordinator for VOID.v1, a TechnoVIT hackathon at MG Auditorium (28-29 October): registration process, design, and on-day logistics.",
-      "Coordinate communication between the management, social media, marketing, and design teams; manage the club's FFCS wing.",
       "Led recruitment of team leads across departments and ensured timely, high-quality delivery from technical departments.",
-      "Co-organized Spectrum'25, the club's flagship annual event."
+      "Co-organized the club's 3 flagship annual hackathons - Spectrum'25(design, registration, sponsorship, and finance), void.V1(registration process, design, and on-day logistics) and Glytch'25(planning, execution, and liaison with institutional bodies)."
     ],
   },
   {
@@ -37,9 +32,7 @@ export const clubLeadership: ActivityEntry[] = [
     start: "December 2024",
     end: "April 2025",
     detail: [
-      "Managed a 15-member design team; created 30+ graphics across 10+ events.",
-      "Oversaw poster design for all events during the tenure and directed social media content creation.",
-      "Directly handled Spectrum'25 design deliverables: posters, banners, stickers, and certificates.",
+      "Managed a 15-member design team; created 30+ graphics across 10+ events; Oversaw poster design for all events during the tenure and directed social media content creation.",
     ],
   },
   {
@@ -48,11 +41,61 @@ export const clubLeadership: ActivityEntry[] = [
     role: "Web Development Member",
     start: "October 2024",
     end: "December 2024",
-    detail: ["Part of the club's website development team."],
   },
 ];
 
-export const community: ActivityEntry[] = [
+export const collegeActivities: ActivityEntry[] = [
+  {
+    org: "Center for Human Movement Analytics, VIT Chennai",
+    role: "Summer Research Intern",
+    start: "",
+    end: "",
+    detail: [],
+  },
+  {
+    org: "TechnoVIT'25, VIT Chennai",
+    role: "Committee Coordinator",
+    start: "",
+    end: "2025",
+    detail: [],
+  },
+  {
+    org: "Centre for Skill & Entrepreneurship Development (CSED), VIT Chennai",
+    role: "HR Representative",
+    start: "",
+    end: "",
+    detail: [],
+  },
+];
+
+export const communityUniversity: ActivityEntry[] = [
+  {
+    org: "Microsoft Innovations Club, VIT Chennai",
+    role: "Management Member",
+    start: "October 2024",
+    end: "July 2025",
+    detail: [
+      "Drafted event proposals and contributed to the club's annual report.",
+      "Assisted in planning the Vibrance event and supported marketing activities.",
+    ],
+  },
+  {
+    org: "Arignar Anna Thamizh Mandram, VIT Chennai",
+    role: "Graphic Designer",
+    start: "",
+    end: "",
+    detail: [],
+  },
+  {
+    org: "Rotaract Club of VIT Chennai",
+    role: "Rotaractor",
+    start: "July 2025",
+    end: "Present",
+    detail: [],
+  },
+];
+
+export const communitySocial: ActivityEntry[] = [
   {
     org: "U&I Trust",
     role: "Student Mentor Volunteer",

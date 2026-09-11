@@ -102,7 +102,7 @@ export type ActivityEntry = {
   role: string;
   start: string;
   end: string;
-  detail: string[];
+  detail?: string[];
 };
 
 export type HackathonEntry = {
@@ -132,15 +132,28 @@ export type SchoolLevel = {
   result?: string;
 };
 
+export type ActivityItem = {
+  label: string;
+  /** Expandable tenure history, shown nested under the activity itself. */
+  history?: ActivityEntry[];
+};
+
 export type EducationEntry = {
   institution: string;
   institutionUrl?: string;
   degree?: string;
   start?: string;
   end: string;
-  activities: string[];
+  activities: ActivityItem[];
   coursework: string[];
   levels?: SchoolLevel[];
+};
+
+export type CertificationEntry = {
+  name: string;
+  issuer?: string;
+  date?: string;
+  url?: string;
 };
 
 export type SubstackPost = {

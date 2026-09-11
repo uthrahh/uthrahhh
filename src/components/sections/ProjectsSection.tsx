@@ -15,11 +15,7 @@ export function ProjectsSection() {
   return (
     <section id="projects" className="scroll-mt-6 border-b border-border">
       <Container className="py-20 sm:py-24">
-        <SectionHeading
-          eyebrow="Projects"
-          title="Projects"
-          description="Thirteen projects spanning data engineering, backend systems, GenAI, and applied ML. Every entry links to real source and documents the actual scope, including what's still in progress."
-        />
+        <SectionHeading eyebrow="Projects" />
 
         <div className="mt-10">
           <ProjectsExplorer projects={sorted} onOpenProject={openProject} />

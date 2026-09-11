@@ -4,11 +4,14 @@ import { useEffect, useRef, useState } from "react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 const sections = [
-  { id: "home", label: "Home", icon: "home" },
-  { id: "projects", label: "Projects", icon: "grid" },
+  { id: "home", label: "Profile", icon: "home" },
   { id: "experience", label: "Experience", icon: "briefcase" },
-  { id: "about", label: "About", icon: "profile" },
-  { id: "contact", label: "Contact", icon: "mail" },
+  { id: "projects", label: "Projects", icon: "grid" },
+  { id: "skills", label: "Skills", icon: "layers" },
+  { id: "education", label: "Education", icon: "cap" },
+  { id: "interests", label: "Interests", icon: "spark" },
+  { id: "articles", label: "Articles", icon: "article" },
+  { id: "languages", label: "Languages", icon: "globe" },
 ] as const;
 
 type IconName = (typeof sections)[number]["icon"];
@@ -41,18 +44,42 @@ function NavIcon({ name }: { name: IconName }) {
           <path d="M1.5 9h13" {...common} />
         </svg>
       );
-    case "profile":
+    case "layers":
       return (
         <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true">
-          <circle cx="8" cy="5" r="2.75" {...common} />
-          <path d="M2.5 14c0-3 2.5-5 5.5-5s5.5 2 5.5 5" {...common} strokeLinecap="round" />
+          <path d="M8 2 14 5.5 8 9 2 5.5Z" {...common} strokeLinejoin="round" />
+          <path d="M2 8.5 8 12l6-3.5" {...common} strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M2 11.5 8 15l6-3.5" {...common} strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       );
-    case "mail":
+    case "cap":
       return (
         <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true">
-          <rect x="1.5" y="3" width="13" height="10" rx="1" {...common} />
-          <path d="M2 4l6 5 6-5" {...common} strokeLinejoin="round" />
+          <path d="M8 3 14.5 6 8 9 1.5 6Z" {...common} strokeLinejoin="round" />
+          <path d="M4.5 7.4V11c0 1 1.6 2 3.5 2s3.5-1 3.5-2V7.4" {...common} strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M14 6.3V10" {...common} strokeLinecap="round" />
+        </svg>
+      );
+    case "spark":
+      return (
+        <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M8 2v3.5M8 10.5V14M2 8h3.5M10.5 8H14" {...common} strokeLinecap="round" />
+          <path d="M4.3 4.3l2.1 2.1M9.6 9.6l2.1 2.1M11.7 4.3l-2.1 2.1M6.4 9.6l-2.1 2.1" {...common} strokeLinecap="round" />
+        </svg>
+      );
+    case "article":
+      return (
+        <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true">
+          <rect x="2" y="2" width="12" height="12" rx="1" {...common} />
+          <path d="M4.5 6h7M4.5 8.5h7M4.5 11h4" {...common} strokeLinecap="round" />
+        </svg>
+      );
+    case "globe":
+      return (
+        <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true">
+          <circle cx="8" cy="8" r="6" {...common} />
+          <path d="M2 8h12" {...common} />
+          <path d="M8 2c2.2 2 2.2 10 0 12M8 2c-2.2 2-2.2 10 0 12" {...common} />
         </svg>
       );
   }
@@ -128,10 +155,13 @@ export function FloatingNav() {
         </div>
       </nav>
 
-      {/* Mobile / tablet: floating bottom bar, compact icons only */}
+      {/* Mobile / tablet: floating bottom bar. More destinations than fit in
+          one row now that Interests/Articles/Languages have nav icons too,
+          so the bar scrolls horizontally within itself rather than either
+          compressing icons to illegible sizes or overflowing the page. */}
       <nav
         aria-label="Primary"
-        className="fixed inset-x-4 bottom-4 z-40 flex items-center justify-between gap-1 border border-border bg-paper/95 px-2 py-2 backdrop-blur lg:hidden"
+        className="fixed inset-x-4 bottom-4 z-40 flex items-center gap-1 overflow-x-auto border border-border bg-paper/95 px-2 py-2 backdrop-blur lg:hidden"
       >
         {sections.map((s) => {
           const isActive = active === s.id;
@@ -142,7 +172,7 @@ export function FloatingNav() {
               onClick={() => goTo(s.id)}
               aria-label={s.label}
               aria-current={isActive ? "true" : undefined}
-              className={`flex min-h-11 min-w-11 flex-1 items-center justify-center rounded-sm transition-colors ${
+              className={`flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-sm transition-colors ${
                 isActive ? "bg-accent-soft text-accent-strong" : "text-ink-muted"
               }`}
             >
@@ -150,7 +180,7 @@ export function FloatingNav() {
             </button>
           );
         })}
-        <div className="flex min-h-11 min-w-11 flex-1 items-center justify-center">
+        <div className="flex min-h-11 min-w-11 shrink-0 items-center justify-center">
           <ThemeToggle />
         </div>
       </nav>

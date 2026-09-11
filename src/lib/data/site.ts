@@ -4,11 +4,7 @@ export const site = {
   tagline:
     "CSE candidate building data pipelines, backend systems, and the software platforms that connect them.",
   positioning:
-    "Computer Science & Engineering candidate building data pipelines, backend systems, and the software platforms that connect them.",
-  heroIntro:
-    "Computer Science & Engineering candidate at Vellore Institute of Technology, Chennai. Curious about how systems, and the businesses behind them, actually work, and I build best alongside a team that's figuring it out together.",
-  careerStatement:
-    "I'm open to software engineering and data-focused engineering roles, spanning data engineering, backend systems, analytics, and applied ML, where I can contribute with my current strengths while growing into broader technical responsibility. What matters most to me is working somewhere I'll keep learning.",
+    "Computer Science & Engineering candidate at Vellore Institute of Technology, Chennai, with a data-oriented focus: data pipelines, backend systems, and applied machine learning.",
   email: "uthrahrk@gmail.com",
   location: "Chennai, India",
   github: "https://github.com/uthrahh",

@@ -13,6 +13,7 @@ const KIND_LABEL: Record<MediaKind, string> = {
   team: "Team photo",
   event: "Event photo",
   documentation: "Documentation",
+  portrait: "Profile photo",
 };
 
 const ASPECT_CLASS: Record<NonNullable<MediaAsset["aspect"]>, string> = {
@@ -73,6 +74,13 @@ function KindIcon({ kind }: { kind: MediaKind }) {
           <path d="M6 2h7l4 4v14H6z" {...common} strokeLinejoin="round" />
           <path d="M13 2v4h4" {...common} strokeLinejoin="round" />
           <path d="M8.5 12h6M8.5 15h6" {...common} strokeLinecap="round" />
+        </svg>
+      );
+    case "portrait":
+      return (
+        <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
+          <circle cx="11" cy="8.5" r="3.5" {...common} />
+          <path d="M4 19c0-4 3-7 7-7s7 3 7 7" {...common} strokeLinecap="round" />
         </svg>
       );
   }
