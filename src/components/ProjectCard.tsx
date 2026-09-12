@@ -35,7 +35,6 @@ export function ProjectCard({
           <p className="font-mono text-[11px] uppercase tracking-wide text-white/70">
             {project.categories[0]}
           </p>
-          <p className="font-mono text-[11px] text-white/70">{project.year}</p>
         </div>
         <h3 className="font-display text-lg text-white sm:text-xl">
           {project.title}

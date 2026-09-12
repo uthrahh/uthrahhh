@@ -14,10 +14,10 @@ export function ProjectsSection() {
 
   return (
     <section id="projects" className="scroll-mt-6 border-b border-border">
-      <Container className="py-20 sm:py-24">
+      <Container className="py-5 sm:py-6">
         <SectionHeading eyebrow="Projects" />
 
-        <div className="mt-10">
+        <div className="mt-3">
           <ProjectsExplorer projects={sorted} onOpenProject={openProject} />
         </div>
       </Container>

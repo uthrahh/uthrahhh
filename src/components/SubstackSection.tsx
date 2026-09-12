@@ -38,7 +38,7 @@ export function SubstackSection() {
           href={site.substack}
           target="_blank"
           rel="noopener noreferrer"
-          className="whitespace-nowrap text-xs font-medium text-ink-muted underline decoration-border-strong underline-offset-4 hover:text-accent-strong hover:decoration-accent"
+          className="whitespace-nowrap text-xs font-medium text-accent-strong underline decoration-border-strong underline-offset-4 hover:text-accent hover:decoration-accent"
         >
           Substack ↗
         </a>
@@ -55,7 +55,7 @@ export function SubstackSection() {
                 className="group block"
               >
                 <div className="flex items-baseline justify-between gap-3">
-                  <h4 className="font-display text-lg text-ink group-hover:text-accent-strong">
+                  <h4 className="font-display text-lg text-accent-strong group-hover:text-accent">
                     {post.title}
                   </h4>
                   <span className="whitespace-nowrap font-mono text-xs text-ink-faint">

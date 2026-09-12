@@ -11,6 +11,7 @@ export const education: EducationEntry[] = [
     activities: [
       { label: "Chairperson - Open Source Programming Club", history: clubLeadership },
       { label: "Rotaractor - Rotaract Club of VIT-C" },
+      { label: "Summer Research Intern - Center for Human Movement Analytics" },
       { label: "Committee Coordinator - TechnoVIT'25" },
       { label: "Organizer - Spectrum'25, VOID.v1, Glytch'25" },
       { label: "HR Representative - Centre for Skill & Entrepreneurship Development (CSED)" },
@@ -25,6 +26,12 @@ export const education: EducationEntry[] = [
       "Object-Oriented Programming",
       "Software Engineering",
       "Data Analytics",
+    ],
+    photos: [
+      { kind: "event", alt: "VIT Chennai photo, to be added", aspect: "4/3" },
+      { kind: "event", alt: "VIT Chennai photo, to be added", aspect: "4/3" },
+      { kind: "event", alt: "VIT Chennai photo, to be added", aspect: "4/3" },
+      { kind: "event", alt: "VIT Chennai photo, to be added", aspect: "4/3" },
     ],
   },
   {
@@ -48,6 +55,4 @@ export const certifications: CertificationEntry[] = [
     date: "January 2026",
     url: "https://www.credly.com/badges/0ba54e47-1f03-4f86-9a0e-2969e3bfbcda",
   },
-  { name: "Microsoft Power BI Data Analyst" },
-  { name: "AWS Data Analytics Fundamentals" },
 ];

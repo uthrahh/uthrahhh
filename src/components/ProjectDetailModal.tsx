@@ -103,7 +103,7 @@ export function ProjectDetailModal({
               </div>
             </div>
 
-            <dl className="mt-8 grid grid-cols-2 gap-5 border-y border-border py-6 sm:grid-cols-4">
+            <dl className="mt-8 grid grid-cols-2 gap-5 border-y border-border py-6 sm:grid-cols-3">
               <div>
                 <dt className="font-mono text-[11px] uppercase tracking-wide text-ink-faint">Role</dt>
                 <dd className="mt-1 text-sm text-ink">{project.role}</dd>
@@ -111,10 +111,6 @@ export function ProjectDetailModal({
               <div>
                 <dt className="font-mono text-[11px] uppercase tracking-wide text-ink-faint">Context</dt>
                 <dd className="mt-1 text-sm text-ink">{project.context}</dd>
-              </div>
-              <div>
-                <dt className="font-mono text-[11px] uppercase tracking-wide text-ink-faint">Year</dt>
-                <dd className="mt-1 text-sm text-ink">{project.year}</dd>
               </div>
               <div>
                 <dt className="font-mono text-[11px] uppercase tracking-wide text-ink-faint">Links</dt>

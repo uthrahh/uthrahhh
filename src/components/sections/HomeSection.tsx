@@ -22,7 +22,7 @@ const SIGNATURE_STACK = [
   "Git / GitHub",
 ];
 
-const CONTACT_LINK_STYLE = "text-accent-strong hover:text-ink";
+const CONTACT_LINK_STYLE = "text-accent-strong hover:text-accent";
 
 export function HomeSection() {
   return (

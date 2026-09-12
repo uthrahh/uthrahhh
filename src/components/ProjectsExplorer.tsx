@@ -137,13 +137,13 @@ export function ProjectsExplorer({
         </div>
       </div>
 
-      <p className="mt-6 text-sm text-ink-faint" role="status">
+      <p className="mt-3 text-sm text-ink-faint" role="status">
         {filtered.length} project{filtered.length === 1 ? "" : "s"}
       </p>
 
       {filtered.length > 0 ? (
         <>
-          <div className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-3 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {visible.map((project) => (
               <ProjectCard
                 key={project.slug}
@@ -154,7 +154,7 @@ export function ProjectsExplorer({
           </div>
 
           {canCollapse ? (
-            <div className="mt-6">
+            <div className="mt-4">
               <button
                 type="button"
                 onClick={() => setExpanded((e) => !e)}

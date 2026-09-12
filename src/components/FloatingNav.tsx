@@ -134,14 +134,14 @@ export function FloatingNav() {
               aria-current={isActive ? "true" : undefined}
               title={s.label}
               className={`group relative flex h-10 w-10 items-center justify-center rounded-sm transition-colors ${
-                isActive ? "bg-accent-soft text-accent-strong" : "text-ink-muted hover:text-ink"
+                isActive ? "bg-accent-soft text-accent" : "text-ink-muted hover:text-ink"
               }`}
             >
               <NavIcon name={s.icon} />
               <span
                 aria-hidden="true"
                 className={`absolute -right-1 top-1/2 h-1 w-1 -translate-y-1/2 translate-x-full rounded-full transition-colors ${
-                  isActive ? "bg-accent-strong" : "bg-transparent"
+                  isActive ? "bg-accent" : "bg-transparent"
                 }`}
               />
               <span className="pointer-events-none absolute left-full ml-3 whitespace-nowrap rounded-sm border border-border bg-paper px-2.5 py-1 text-xs font-medium text-ink opacity-0 shadow-sm transition-opacity group-hover:opacity-100">
@@ -173,7 +173,7 @@ export function FloatingNav() {
               aria-label={s.label}
               aria-current={isActive ? "true" : undefined}
               className={`flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-sm transition-colors ${
-                isActive ? "bg-accent-soft text-accent-strong" : "text-ink-muted"
+                isActive ? "bg-accent-soft text-accent" : "text-ink-muted"
               }`}
             >
               <NavIcon name={s.icon} />

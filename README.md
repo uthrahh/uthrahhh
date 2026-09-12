@@ -6,11 +6,12 @@ route (Substack feed) and no database or auth.
 
 ## Why this stack
 
-- **Single page, section-based**: Home, Projects, Experience, About, and
-  Contact are sections (`#home`, `#projects`, ...) on one route, not
-  separate pages. Project case studies open in an in-page modal
-  (`ProjectDetailModal`) rather than navigating away, so a visitor never
-  leaves the portfolio to go deep on a project.
+- **Single page, section-based**: Profile, Experience, Projects, Skills,
+  Education, Interests, Articles, and Languages are sections (`#home`,
+  `#experience`, ...) on one route, not separate pages. Project case
+  studies open in an in-page modal (`ProjectDetailModal`) rather than
+  navigating away, so a visitor never leaves the portfolio to go deep on
+  a project.
 - **Content lives in `src/lib/data/*.ts`**, not a CMS or database. Every
   fact on the site (projects, experience, leadership, skills) is a typed
   TypeScript object. To update the site, edit these files, no migrations,
@@ -24,29 +25,33 @@ route (Substack feed) and no database or auth.
 - **No contact form / no analytics**, deliberately. A form would need a
   backend to handle submissions securely; analytics wasn't added just
   because portfolios usually have it. Contact is direct: email (copies to
-  clipboard), LinkedIn, GitHub, Substack.
+  clipboard), LinkedIn, and GitHub, shown in the Profile section — there
+  is no separate bottom Contact section.
 
 ## Project structure
 
 ```
 src/
   app/
-    page.tsx               The entire site (composes the five sections)
-    api/substack/route.ts  Server-side RSS fetch + parse for the Writing section
+    page.tsx               The entire site (composes all sections in order)
+    api/substack/route.ts  Server-side RSS fetch + parse for the Articles section
     privacy/, terms/       Standalone legal pages (not part of the single-page flow)
     sitemap.ts, robots.ts, icon.tsx, opengraph-image.tsx
   components/
-    sections/               HomeSection, ProjectsSection, ExperienceSection, AboutSection
+    sections/               HomeSection, ExperienceSection, ProjectsSection,
+                             SkillsSection, EducationSection, InterestsSection,
+                             ArticlesSection, LanguagesSection
     FloatingNav.tsx          Left rail (desktop) / bottom bar (mobile), active-section tracking
     ScrollToTop.tsx
     ProjectDetailModal.tsx + ProjectModalProvider.tsx   In-page project case studies
+    ProjectsExplorer.tsx     Search, category filters, and the show-first-row/View more grid
+    RoleCylinder.tsx / TextCylinder.tsx   The rotating role and skills 3D text cylinders
     MediaFrame.tsx           Renders real media, or a labeled placeholder if the file isn't there yet
     AwardBadge.tsx           Achievement ribbon (card) and award block (case study)
     SubstackSection.tsx
   lib/
     data/                    All site content, edit these to update the site
     types.ts                 Shared content types
-    nav.ts                   Section anchors shown in the nav
 ```
 
 ## Updating content

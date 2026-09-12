@@ -50,7 +50,6 @@ export type Project = {
   summary: string;
   categories: ProjectCategory[];
   technologies: string[];
-  year: string;
   role: string;
   context: string;
   featured: boolean;
@@ -92,6 +91,11 @@ export type ExperienceItem = {
   start: string;
   end: string;
   summary: string;
+  /** Compact, scannable responsibility/achievement bullets shown under the
+   * summary paragraph — kept separate from `summary` so the intro reads as
+   * a short paragraph and the specifics read as a real list, not one
+   * run-on block of text. */
+  highlights?: string[];
   workstreams: Workstream[];
   technologies: string[];
 };
@@ -147,6 +151,9 @@ export type EducationEntry = {
   activities: ActivityItem[];
   coursework: string[];
   levels?: SchoolLevel[];
+  /** Optional row of photos shown at the bottom of the box; renders as
+   * labeled placeholders until real images are added under /public. */
+  photos?: MediaAsset[];
 };
 
 export type CertificationEntry = {

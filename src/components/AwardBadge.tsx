@@ -21,9 +21,9 @@ export function AwardRibbon({ achievement }: { achievement: Achievement }) {
 export function AwardBlock({ achievement }: { achievement: Achievement }) {
   return (
     <div className="flex items-stretch gap-5 border-2 border-accent bg-accent-soft p-5 sm:p-6">
-      <span className="font-mono text-xs text-accent-strong">01</span>
+      <span className="font-mono text-xs text-accent">01</span>
       <div>
-        <p className="font-display text-2xl leading-none text-accent-strong sm:text-3xl">
+        <p className="font-display text-2xl leading-none text-accent sm:text-3xl">
           {achievement.rank}
         </p>
         <p className="mt-2 font-mono text-xs uppercase tracking-widest text-ink">

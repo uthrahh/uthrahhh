@@ -1,8 +1,11 @@
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/ui";
+import { MediaFrame } from "@/components/MediaFrame";
 import { education, certifications } from "@/lib/data/education";
 import { hackathons } from "@/lib/data/leadership";
 import type { ActivityItem } from "@/lib/types";
+
+const LABEL_CLASS = "mb-4 font-mono text-xs uppercase tracking-widest text-accent";
 
 function ActivityListItem({ item }: { item: ActivityItem }) {
   if (!item.history?.length) {
@@ -62,7 +65,7 @@ function EducationBoxHeader({
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-display text-xl text-ink hover:text-accent-strong sm:text-2xl"
+          className="font-display text-xl text-accent-strong hover:text-accent sm:text-2xl"
         >
           {name}
         </a>
@@ -80,13 +83,13 @@ export function EducationSection() {
 
   return (
     <section id="education" className="scroll-mt-6 border-b border-border">
-      <Container className="py-20 sm:py-24">
+      <Container className="py-5 sm:py-6">
         <SectionHeading eyebrow="Education" />
 
-        <div className="mt-10 space-y-8">
+        <div className="mt-4 space-y-4">
           {/* University */}
           {university ? (
-            <div className="border border-border p-7 sm:p-8">
+            <div className="border border-border p-6 sm:p-7">
               <EducationBoxHeader
                 name={university.institution}
                 url={university.institutionUrl}
@@ -98,12 +101,10 @@ export function EducationSection() {
                 <p className="mt-1.5 text-sm font-medium text-ink-muted">{university.degree}</p>
               ) : null}
 
-              <div className="mt-8 grid gap-x-10 gap-y-8 lg:grid-cols-2">
+              <div className="mt-4 grid gap-x-10 gap-y-4 lg:grid-cols-2">
                 {/* Left: Activities & Societies */}
                 <div>
-                  <p className="mb-4 font-mono text-xs uppercase tracking-widest text-ink-faint">
-                    Activities &amp; Societies
-                  </p>
+                  <p className={LABEL_CLASS}>Activities &amp; Societies</p>
                   <ul className="space-y-2.5">
                     {university.activities.map((item) => (
                       <ActivityListItem key={item.label} item={item} />
@@ -113,9 +114,7 @@ export function EducationSection() {
 
                 {/* Right: Achievements + Relevant coursework */}
                 <div>
-                  <p className="mb-4 font-mono text-xs uppercase tracking-widest text-accent">
-                    Achievements
-                  </p>
+                  <p className={LABEL_CLASS}>Achievements</p>
                   <ul className="divide-y divide-border border border-border">
                     {hackathons.map((h) => (
                       <li key={h.name} className="border-l-2 border-l-accent px-4 py-3">
@@ -132,10 +131,8 @@ export function EducationSection() {
                   </p>
 
                   {university.coursework.length ? (
-                    <div className="mt-7">
-                      <p className="mb-2 font-mono text-xs uppercase tracking-widest text-ink-faint">
-                        Relevant Coursework
-                      </p>
+                    <div className="mt-3">
+                      <p className={LABEL_CLASS}>Relevant Coursework</p>
                       <p className="text-sm leading-relaxed text-ink-muted">
                         {university.coursework.join(" · ")}
                       </p>
@@ -143,24 +140,38 @@ export function EducationSection() {
                   ) : null}
                 </div>
               </div>
+
+              {/* Photos: reserved row, placeholders until real photos are added */}
+              {university.photos?.length ? (
+                <div className="mt-4 border-t border-border pt-4">
+                  <p className={LABEL_CLASS}>Photos</p>
+                  <div className="flex gap-3 overflow-x-auto sm:grid sm:grid-cols-4 sm:overflow-visible">
+                    {university.photos.map((photo, i) => (
+                      <MediaFrame
+                        key={i}
+                        asset={photo}
+                        className="w-28 shrink-0 sm:w-auto sm:shrink"
+                      />
+                    ))}
+                  </div>
+                </div>
+              ) : null}
             </div>
           ) : null}
 
           {/* School */}
           {school ? (
-            <div className="border border-border p-7 sm:p-8">
+            <div className="border border-border p-6 sm:p-7">
               <EducationBoxHeader
                 name={school.institution}
                 url={school.institutionUrl}
                 meta={school.end}
               />
 
-              <div className="mt-6 grid gap-x-10 gap-y-6 sm:grid-cols-2">
+              <div className="mt-4 grid gap-x-10 gap-y-3 sm:grid-cols-2">
                 {school.levels ? (
                   <div>
-                    <p className="mb-3 font-mono text-xs uppercase tracking-widest text-ink-faint">
-                      Academics
-                    </p>
+                    <p className={LABEL_CLASS}>Academics</p>
                     <ul className="space-y-2">
                       {school.levels.map((lvl) => (
                         <li key={lvl.grade} className="text-sm text-ink">
@@ -175,9 +186,7 @@ export function EducationSection() {
 
                 {school.activities.length ? (
                   <div>
-                    <p className="mb-3 font-mono text-xs uppercase tracking-widest text-ink-faint">
-                      Activities
-                    </p>
+                    <p className={LABEL_CLASS}>Activities</p>
                     <ul className="space-y-2">
                       {school.activities.map((a) => (
                         <li key={a.label} className="text-sm leading-relaxed text-ink-muted">
@@ -192,9 +201,9 @@ export function EducationSection() {
           ) : null}
 
           {/* Certifications */}
-          <div className="border border-border p-7 sm:p-8">
+          <div className="border border-border p-6 sm:p-7">
             <p className="font-display text-xl text-ink sm:text-2xl">Certifications</p>
-            <div className="mt-6 space-y-4">
+            <div className="mt-3 space-y-3">
               {certifications.map((c) => (
                 <p key={c.name} className="text-[15px] leading-relaxed text-ink-muted">
                   {c.url ? (
@@ -202,7 +211,7 @@ export function EducationSection() {
                       href={c.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-medium text-ink hover:text-accent-strong"
+                      className="font-medium text-accent-strong hover:text-accent"
                     >
                       {c.name}
                     </a>
