@@ -13,22 +13,27 @@ export function ExperienceSection() {
         <div className="mt-10 space-y-16">
           {experience.map((exp) => (
             <div key={exp.org} className="border-t border-border pt-12 first:border-t-0 first:pt-0">
-              <h3 className="font-display text-xl leading-snug text-ink sm:text-2xl">
-                {exp.role}
-                <span className="text-ink-muted"> at </span>
-                <a
-                  href={exp.orgUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-ink hover:text-accent-strong"
-                >
-                  {exp.org}
-                </a>
-                <span className="text-ink-muted">, {exp.city}</span>
-              </h3>
+              <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
+                <h3 className="font-display text-xl leading-snug text-ink sm:text-2xl">
+                  {exp.role}
+                  <span className="text-ink-muted"> at </span>
+                  <a
+                    href={exp.orgUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-ink hover:text-accent-strong"
+                  >
+                    {exp.org}
+                  </a>
+                  <span className="text-ink-muted">, {exp.city}</span>
+                </h3>
+                <span className="shrink-0 font-mono text-xs text-ink-faint sm:text-sm">
+                  {exp.start} – {exp.end}
+                </span>
+              </div>
 
               <p className="mt-2 font-mono text-xs uppercase tracking-wide text-ink-faint">
-                {exp.employmentType} · {exp.workMode} · {exp.start} – {exp.end} ({exp.duration})
+                {exp.employmentType} · {exp.workMode} · {exp.duration}
               </p>
 
               <div className="mt-7 grid gap-x-10 gap-y-6 lg:grid-cols-2">

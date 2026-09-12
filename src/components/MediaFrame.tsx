@@ -78,7 +78,7 @@ function KindIcon({ kind }: { kind: MediaKind }) {
       );
     case "portrait":
       return (
-        <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
+        <svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true">
           <circle cx="11" cy="8.5" r="3.5" {...common} />
           <path d="M4 19c0-4 3-7 7-7s7 3 7 7" {...common} strokeLinecap="round" />
         </svg>

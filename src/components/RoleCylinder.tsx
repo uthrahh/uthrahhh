@@ -7,10 +7,10 @@ export function RoleCylinder() {
     <div className="w-full max-w-sm sm:max-w-md">
       <TextCylinder
         items={ROLES}
-        textClassName="font-mono text-lg uppercase tracking-widest text-accent sm:text-xl"
-        heightEm={1.5}
+        textClassName="font-mono text-base uppercase tracking-widest text-accent sm:text-lg"
+        heightEm={1}
         durationSeconds={14}
-        perspective={340}
+        perspective={3400}
       />
     </div>
   );

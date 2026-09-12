@@ -26,9 +26,9 @@ export function TextCylinder({
   separator = "   ·   ",
   ariaLabel,
   textClassName,
-  heightEm = 1.6,
+  heightEm = 1,
   durationSeconds = 22,
-  perspective = 420,
+  perspective = 400,
   radiusScale = 1,
 }: {
   items: string[];
@@ -83,8 +83,17 @@ export function TextCylinder({
         {items.join(separator)}
       </p>
 
+      {/*
+        The scene's own font-size must match the characters' font-size, or
+        the `em`-based height below resolves against an unrelated inherited
+        size (e.g. the ambient body font-size) instead of the text's actual
+        size at this breakpoint — silently clipping the glyphs whenever the
+        two diverge. Applying `textClassName` here (font-size only really
+        matters; the rest is inert on an empty container) keeps them locked
+        together at every breakpoint.
+      */}
       <div
-        className="role-cylinder-scene"
+        className={`role-cylinder-scene ${textClassName}`}
         style={{ height: `${heightEm}em`, perspective: `${perspective}px` }}
         aria-hidden="true"
       >

@@ -20,6 +20,8 @@ function FilterIcon() {
   );
 }
 
+const INITIAL_VISIBLE_COUNT = 3;
+
 export function ProjectsExplorer({
   projects,
   onOpenProject,
@@ -29,6 +31,7 @@ export function ProjectsExplorer({
 }) {
   const [query, setQuery] = useState("");
   const [activeCategories, setActiveCategories] = useState<ProjectCategory[]>([]);
+  const [expanded, setExpanded] = useState(false);
 
   function toggleCategory(cat: ProjectCategory) {
     setActiveCategories((prev) =>
@@ -39,6 +42,7 @@ export function ProjectsExplorer({
   function reset() {
     setQuery("");
     setActiveCategories([]);
+    setExpanded(false);
   }
 
   const filtered = useMemo(() => {
@@ -65,6 +69,8 @@ export function ProjectsExplorer({
   }, [projects, query, activeCategories]);
 
   const hasActiveFilters = query.trim().length > 0 || activeCategories.length > 0;
+  const canCollapse = !hasActiveFilters && filtered.length > INITIAL_VISIBLE_COUNT;
+  const visible = canCollapse && !expanded ? filtered.slice(0, INITIAL_VISIBLE_COUNT) : filtered;
 
   return (
     <div>
@@ -136,15 +142,39 @@ export function ProjectsExplorer({
       </p>
 
       {filtered.length > 0 ? (
-        <div className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((project) => (
-            <ProjectCard
-              key={project.slug}
-              project={project}
-              onOpen={() => onOpenProject(project.slug)}
-            />
-          ))}
-        </div>
+        <>
+          <div className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {visible.map((project) => (
+              <ProjectCard
+                key={project.slug}
+                project={project}
+                onOpen={() => onOpenProject(project.slug)}
+              />
+            ))}
+          </div>
+
+          {canCollapse ? (
+            <div className="mt-6">
+              <button
+                type="button"
+                onClick={() => setExpanded((e) => !e)}
+                className="group inline-flex items-center gap-1.5 text-sm font-medium text-ink-muted transition-colors hover:text-accent-strong"
+              >
+                {expanded ? "View less" : "View more projects"}
+                <svg
+                  width="10"
+                  height="10"
+                  viewBox="0 0 10 10"
+                  fill="none"
+                  aria-hidden="true"
+                  className={`transition-transform duration-200 ${expanded ? "-rotate-180" : ""}`}
+                >
+                  <path d="M2 4l3 3 3-3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            </div>
+          ) : null}
+        </>
       ) : (
         <div className="mt-4 border border-dashed border-border p-10 text-center">
           <p className="text-sm text-ink-muted">

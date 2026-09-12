@@ -26,7 +26,7 @@ export function WorkstreamRow({ workstream }: { workstream: Workstream }) {
         {workstream.projectSlug ? (
           <span
             aria-hidden="true"
-            className="mt-1 shrink-0 text-ink-faint opacity-0 transition-all group-hover:translate-x-0.5 group-hover:opacity-100"
+            className="mt-1 shrink-0 text-ink-faint transition-all group-hover:translate-x-0.5 group-hover:text-accent-strong group-focus-visible:translate-x-0.5 group-focus-visible:text-accent-strong"
           >
             →
           </span>

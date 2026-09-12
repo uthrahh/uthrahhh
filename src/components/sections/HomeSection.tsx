@@ -47,21 +47,24 @@ export function HomeSection() {
               {site.name}
             </h1>
 
-            <div className="mt-3 sm:mt-4">
+            {/* Name, roles, and skills share one consistent vertical rhythm;
+                the gap before the prose summary is deliberately larger to
+                separate the identity/tech-stack block from the paragraph. */}
+            <div className="mt-4 sm:mt-5">
               <RoleCylinder />
             </div>
 
-            <div className="mt-8 max-w-md sm:mt-10">
+            <div className="mt-4 max-w-md sm:mt-5">
               <TextCylinder
                 items={SIGNATURE_STACK}
                 textClassName="font-mono text-xs uppercase tracking-widest text-ink-faint sm:text-[13px]"
-                heightEm={1.4}
+                heightEm={1}
                 durationSeconds={26}
-                perspective={600}
+                perspective={1500}
               />
             </div>
 
-            <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-ink-muted sm:text-base">
+            <p className="mt-8 max-w-xl text-[15px] leading-relaxed text-ink-muted sm:mt-10 sm:text-base">
               I&apos;m a Computer Science &amp; Engineering candidate at{" "}
               <span className="font-medium text-ink">Vellore Institute of Technology, Chennai</span>{" "}
               (graduating 2027), with a <span className="font-medium text-ink">data-oriented</span>{" "}
@@ -105,25 +108,13 @@ export function HomeSection() {
                 kind: "portrait",
                 src: "/profilephoto.jpg",
                 alt: `Portrait of ${site.name}`,
-                aspect: "1/1",
+                aspect: "3/4",
               }}
               className="relative w-36 sm:w-44 md:w-56 lg:w-64 xl:w-72"
               imgClassName="object-top"
             />
           </div>
         </div>
-      </Container>
-
-      <Container className="relative pb-24 lg:pb-10">
-        <a
-          href="#experience"
-          className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-ink-faint transition-colors hover:text-accent-strong"
-        >
-          Work Experience
-          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-            <path d="M2 4l3 3 3-3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </a>
       </Container>
     </section>
   );
