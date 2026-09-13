@@ -133,6 +133,47 @@ body {
   }
 }
 
+/* Black "glass" popup surface, shared by the resume picker and the project
+   case-study modal: re-points the same ink/paper/border tokens every
+   component already reads (text-ink, border-border, bg-paper-raised, …) to
+   a fixed, theme-independent glass palette, purely via CSS custom property
+   scoping — no per-component color classes to maintain in two places. */
+.glass-modal {
+  --paper: transparent;
+  --paper-raised: rgba(255, 255, 255, 0.06);
+  --paper-sunken: rgba(255, 255, 255, 0.12);
+  --ink: #ffffff;
+  --ink-muted: rgba(255, 255, 255, 0.72);
+  --ink-faint: rgba(255, 255, 255, 0.52);
+  --border: rgba(255, 255, 255, 0.16);
+  --border-strong: rgba(255, 255, 255, 0.32);
+  --accent-soft: rgba(204, 85, 0, 0.18);
+}
+
+/* Eyebrow logo badges: a badge that carries a `darkSrc` swaps images by
+   theme, same pattern as the hero grid's dark-mode override above. */
+.badge-logo-dark {
+  display: none;
+}
+
+:root[data-theme="dark"] .badge-logo-light {
+  display: none;
+}
+
+:root[data-theme="dark"] .badge-logo-dark {
+  display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .badge-logo-light {
+    display: none;
+  }
+
+  :root:not([data-theme="light"]) .badge-logo-dark {
+    display: block;
+  }
+}
+
 .prose-body a {
   color: var(--ink);
   text-decoration: underline;

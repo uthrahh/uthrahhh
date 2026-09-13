@@ -31,8 +31,19 @@ const RESUME_DELAY_MS = 6000;
  * Under `prefers-reduced-motion`, CSS swaps this for the plain, always-
  * fully-accessible WorkstreamRow list — see `.project-barrel-static` in
  * globals.css — and the animation itself is paused via inline style too.
+ *
+ * `asList` forces that same plain list even with motion allowed — used so
+ * the barrel can switch to a full, readable list while its sibling
+ * "Read more" panel is expanded, and switch back to the barrel once
+ * collapsed (see ExperienceEntry.tsx).
  */
-export function ExperienceProjectBarrel({ workstreams }: { workstreams: Workstream[] }) {
+export function ExperienceProjectBarrel({
+  workstreams,
+  asList = false,
+}: {
+  workstreams: Workstream[];
+  asList?: boolean;
+}) {
   const [paused, setPaused] = useState(false);
   const openProject = useProjectModal();
   const count = workstreams.length;
@@ -72,6 +83,16 @@ export function ExperienceProjectBarrel({ workstreams }: { workstreams: Workstre
   };
 
   if (count === 0) return null;
+
+  if (asList) {
+    return (
+      <div>
+        {workstreams.map((ws) => (
+          <WorkstreamRow key={ws.title} workstream={ws} />
+        ))}
+      </div>
+    );
+  }
 
   const angleStep = 360 / count;
   const durationSeconds = count * SECONDS_PER_ITEM;

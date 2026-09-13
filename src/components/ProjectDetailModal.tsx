@@ -67,13 +67,13 @@ export function ProjectDetailModal({
   return (
     <dialog
       ref={dialogRef}
-      className="m-0 h-full max-h-full w-full max-w-full border-0 bg-transparent p-0 backdrop:bg-ink/60 backdrop:backdrop-blur-sm open:animate-none"
+      className="m-0 h-full max-h-full w-full max-w-full border-0 bg-transparent p-0 backdrop:bg-black/15 backdrop:backdrop-blur-sm open:animate-none"
       onClick={(e) => {
         if (e.target === dialogRef.current) onClose();
       }}
     >
       {project ? (
-        <div className="mx-auto flex h-full max-h-full w-full max-w-3xl flex-col bg-paper lg:my-6 lg:h-[calc(100%-3rem)] lg:border lg:border-border">
+        <div className="glass-modal mx-auto flex h-full max-h-full w-full max-w-3xl flex-col overflow-hidden rounded-none border border-border bg-black/40 backdrop-blur-xl shadow-2xl lg:my-6 lg:h-[calc(100%-3rem)] lg:rounded-2xl">
           <div className="flex items-center justify-between border-b border-border px-5 py-4 sm:px-8">
             <p className="font-mono text-xs uppercase tracking-widest text-ink-faint">
               Case study

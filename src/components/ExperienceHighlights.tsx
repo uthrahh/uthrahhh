@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import type { ReactNode } from "react";
 
 /** Renders `**text**` as selective bold emphasis within an otherwise plain
  * data string, so source content can call out key technical terms without
@@ -36,30 +36,22 @@ function BulletList({ items }: { items: string[] }) {
  * of its last word, expanding inline to the full labeled bullet groups
  * below. Collapsed state shows only the summary — enough to understand the
  * role at a glance; nothing is truncated mid-sentence since the summary
- * itself is always shown in full.
+ * itself is always shown in full. `expanded` is controlled by the parent
+ * (ExperienceEntry) so the sibling project barrel can switch to a plain
+ * list in lockstep with this toggle.
  */
 export function ExperienceHighlights({
   summary,
   groups,
+  expanded,
+  onToggle,
 }: {
   summary: string;
   groups: { label: string; items: string[] }[];
+  expanded: boolean;
+  onToggle: () => void;
 }) {
-  const [expanded, setExpanded] = useState(false);
-  const [contentHeight, setContentHeight] = useState(0);
-  const contentRef = useRef<HTMLDivElement>(null);
   const hasMore = groups.length > 0;
-
-  useEffect(() => {
-    const measure = () => {
-      if (contentRef.current) {
-        setContentHeight(contentRef.current.scrollHeight);
-      }
-    };
-    measure();
-    window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
-  }, [groups]);
 
   return (
     <div>
@@ -70,7 +62,7 @@ export function ExperienceHighlights({
             {" "}
             <button
               type="button"
-              onClick={() => setExpanded((v) => !v)}
+              onClick={onToggle}
               aria-expanded={expanded}
               className="inline-flex items-center gap-1 whitespace-nowrap font-mono text-xs uppercase tracking-wide text-accent-strong transition-colors hover:text-accent"
             >
@@ -83,19 +75,22 @@ export function ExperienceHighlights({
 
       {hasMore ? (
         <div
-          style={{ maxHeight: expanded ? contentHeight : 0 }}
           aria-hidden={!expanded}
-          className="overflow-hidden transition-[max-height] duration-300 ease-out"
+          className={`grid transition-[grid-template-rows] duration-300 ease-out ${
+            expanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+          }`}
         >
-          <div ref={contentRef} className="space-y-4 pt-4">
-            {groups.map((group) => (
-              <div key={group.label}>
-                <p className="mb-1.5 font-mono text-[11px] uppercase tracking-widest text-ink-faint">
-                  {group.label}
-                </p>
-                <BulletList items={group.items} />
-              </div>
-            ))}
+          <div className="overflow-hidden">
+            <div className="space-y-4 pt-4">
+              {groups.map((group) => (
+                <div key={group.label}>
+                  <p className="mb-1.5 font-mono text-[11px] uppercase tracking-widest text-ink-faint">
+                    {group.label}
+                  </p>
+                  <BulletList items={group.items} />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       ) : null}
