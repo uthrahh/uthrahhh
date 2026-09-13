@@ -197,7 +197,7 @@ export function EducationSection() {
             <p className="font-display text-xl text-ink sm:text-2xl">Certifications</p>
             <div className="mt-3 space-y-3">
               {certifications.map((c) => (
-                <p key={c.name} className="text-[15px] leading-relaxed text-ink-muted">
+                <p key={c.name} className="text-[14px] leading-relaxed text-ink-muted">
                   {c.url ? (
                     <a
                       href={c.url}

@@ -30,6 +30,8 @@ export function TextCylinder({
   durationSeconds = 22,
   perspective = 400,
   radiusScale = 1,
+  repeat = 1,
+  reverse = false,
 }: {
   items: string[];
   separator?: string;
@@ -41,11 +43,21 @@ export function TextCylinder({
   perspective?: number;
   /** Multiplier applied to the text-derived radius, for extra breathing room. */
   radiusScale?: number;
+  /** How many times the item sequence repeats around the drum. A larger
+   * radius (via `radiusScale`) spreads the same characters over more
+   * circumference, widening the gaps between them; repeating the sequence
+   * adds more characters to fill that circumference back in without
+   * changing the spoken label or the reduced-motion fallback text, both of
+   * which still use a single, un-repeated copy of `items`. */
+  repeat?: number;
+  /** Spins the drum the opposite way — used to make two cylinders on the
+   * same page read as meshed gears turning against each other. */
+  reverse?: boolean;
 }) {
   const measureRef = useRef<HTMLSpanElement>(null);
   const [radius, setRadius] = useState<number | null>(null);
 
-  const sequence = `${items.join(separator)}${separator}`;
+  const sequence = `${items.join(separator)}${separator}`.repeat(repeat);
   const chars = sequence.split("");
   const anglePerChar = 360 / chars.length;
 
@@ -102,6 +114,7 @@ export function TextCylinder({
           style={{
             opacity: radius ? 1 : 0,
             animationDuration: `${durationSeconds}s`,
+            animationDirection: reverse ? "reverse" : "normal",
           }}
         >
           {chars.map((ch, i) => {

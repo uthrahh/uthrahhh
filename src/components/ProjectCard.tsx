@@ -1,5 +1,5 @@
 import { MediaFrame } from "@/components/MediaFrame";
-import { AwardRibbon } from "@/components/AwardBadge";
+import { AwardRibbon, StatusRibbon } from "@/components/AwardBadge";
 import type { Project } from "@/lib/types";
 
 export function ProjectCard({
@@ -22,7 +22,11 @@ export function ProjectCard({
         className="absolute inset-0"
       />
 
-      {project.achievement ? <AwardRibbon achievement={project.achievement} /> : null}
+      {project.achievement ? (
+        <AwardRibbon achievement={project.achievement} />
+      ) : project.status === "Product in development" ? (
+        <StatusRibbon status="Product in development" />
+      ) : null}
 
       {/* Scrim: fixed dark gradient regardless of site theme, so overlaid text
           stays legible even over busy, text-heavy screenshots — sustained

@@ -68,8 +68,13 @@
   --font-mono: var(--font-plex-mono);
 }
 
-* {
-  border-color: var(--border);
+/* Layered so Tailwind's border-color utilities (e.g. border-accent) can
+   still override this default — an unlayered rule would otherwise always
+   win over layered utility classes regardless of specificity. */
+@layer base {
+  * {
+    border-color: var(--border);
+  }
 }
 
 html {
@@ -96,6 +101,18 @@ body {
 ::selection {
   background: var(--accent-soft);
   color: var(--ink);
+}
+
+/* Every flowing passage in the site (hero bio, experience/project prose,
+   interests, legal pages, etc.) consistently uses `leading-relaxed` as its
+   body-text marker, so justifying it here covers all of them without
+   editing each one individually. Single-line content (short bullets,
+   labels) is unaffected — justify only stretches non-final wrapped lines. */
+@layer base {
+  .leading-relaxed {
+    text-align: justify;
+    text-justify: inter-word;
+  }
 }
 
 :focus-visible {
@@ -213,7 +230,7 @@ body {
     transform: rotateY(0deg);
   }
   to {
-    transform: rotateY(360deg);
+    transform: rotateY(-360deg);
   }
 }
 
@@ -246,7 +263,7 @@ body {
     transform: rotateX(0deg);
   }
   to {
-    transform: rotateX(-360deg);
+    transform: rotateX(360deg);
   }
 }
 

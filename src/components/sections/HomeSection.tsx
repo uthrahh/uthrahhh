@@ -61,10 +61,11 @@ export function HomeSection() {
                 heightEm={1}
                 durationSeconds={26}
                 perspective={1500}
+                reverse
               />
             </div>
 
-            <p className="mt-8 max-w-xl text-[15px] leading-relaxed text-ink-muted sm:mt-10 sm:text-base">
+            <p className="mt-8 max-w-xl text-[14px] leading-relaxed text-ink-muted sm:mt-10 sm:text-[15px]">
               I&apos;m a Computer Science &amp; Engineering candidate at{" "}
               <span className="font-medium text-ink">Vellore Institute of Technology, Chennai</span>{" "}
               (graduating 2027), with a <span className="font-medium text-ink">data-oriented</span>{" "}
@@ -99,14 +100,10 @@ export function HomeSection() {
           </div>
 
           <div className="relative mx-auto shrink-0 lg:mx-0">
-            <div
-              aria-hidden="true"
-              className="absolute -bottom-2 -right-2 h-full w-full rounded-full bg-accent/25"
-            />
             <ProtectedPhoto
               src="/profilephoto.jpg"
               alt={`Portrait of ${site.name}`}
-              className="relative w-36 sm:w-44 md:w-56 lg:w-64 xl:w-72"
+              className="relative w-32 sm:w-40 md:w-48 lg:w-56 xl:w-64"
             />
           </div>
         </div>

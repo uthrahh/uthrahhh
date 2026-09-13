@@ -22,12 +22,12 @@ const statusLabel: Record<Project["status"], string> = {
  * than as back-to-back paragraphs. */
 function SectionBody({ body }: { body: string[] }) {
   if (body.length <= 1) {
-    return <p className="text-[15px] leading-relaxed text-ink-muted">{body[0]}</p>;
+    return <p className="text-[14px] leading-relaxed text-ink-muted">{body[0]}</p>;
   }
   return (
     <ul className="space-y-2.5">
       {body.map((paragraph, i) => (
-        <li key={i} className="flex gap-2.5 text-[15px] leading-relaxed text-ink-muted">
+        <li key={i} className="flex gap-2.5 text-[14px] leading-relaxed text-ink-muted">
           <span className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true" />
           <span>{paragraph}</span>
         </li>

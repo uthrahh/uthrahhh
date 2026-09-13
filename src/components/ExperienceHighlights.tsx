@@ -63,7 +63,7 @@ export function ExperienceHighlights({
 
   return (
     <div>
-      <p className="text-base leading-relaxed text-ink-muted">
+      <p className="text-[15px] leading-relaxed text-ink-muted">
         {summary}
         {hasMore ? (
           <>

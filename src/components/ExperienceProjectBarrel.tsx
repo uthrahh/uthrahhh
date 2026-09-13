@@ -5,9 +5,10 @@ import { useProjectModal } from "@/components/ProjectModalProvider";
 import { WorkstreamRow } from "@/components/WorkstreamRow";
 import type { Workstream } from "@/lib/types";
 
-const RADIUS = 80;
-const SCENE_HEIGHT = 208;
-const SECONDS_PER_ITEM = 2.6;
+const RADIUS = 30;
+const PERSPECTIVE = 3600;
+const SCENE_HEIGHT = 132;
+const SECONDS_PER_ITEM = 2.1;
 const RESUME_DELAY_MS = 6000;
 
 /**
@@ -79,7 +80,7 @@ export function ExperienceProjectBarrel({ workstreams }: { workstreams: Workstre
     <div>
       <div
         className="project-barrel-scene"
-        style={{ height: SCENE_HEIGHT, perspective: 900 }}
+        style={{ height: SCENE_HEIGHT, perspective: PERSPECTIVE }}
         onMouseEnter={pauseWithFallbackResume}
         onMouseLeave={resumeNow}
         onFocusCapture={pauseWithFallbackResume}
@@ -105,7 +106,7 @@ export function ExperienceProjectBarrel({ workstreams }: { workstreams: Workstre
                 className="group project-barrel-item w-full min-w-0 text-left"
                 style={{ transform: `rotateX(${angle}deg) translateZ(${RADIUS}px)` }}
               >
-                <div className="w-full min-w-0 border-b border-border py-2.5">
+                <div className="mx-auto w-[88%] min-w-0 border-b border-border py-1.5">
                   <div className="flex min-w-0 items-center justify-between gap-2">
                     <h4 className="min-w-0 truncate font-display text-sm text-ink transition-colors group-hover:text-accent-strong group-focus-visible:text-accent-strong">
                       {ws.title}

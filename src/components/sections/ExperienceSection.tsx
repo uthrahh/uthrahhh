@@ -38,7 +38,7 @@ export function ExperienceSection() {
                 {exp.employmentType} · {exp.workMode} · {exp.duration}
               </p>
 
-              <div className="mt-3 grid gap-x-10 gap-y-3 lg:grid-cols-2">
+              <div className="mt-3 grid gap-x-10 gap-y-3 lg:grid-cols-2 lg:items-center">
                 <div className="max-w-md">
                   {exp.summary ? (
                     <ExperienceHighlights summary={exp.summary} groups={exp.highlightGroups ?? []} />

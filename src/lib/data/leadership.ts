@@ -54,7 +54,7 @@ export const collegeActivities: ActivityEntry[] = [
   },
   {
     org: "Centre for Skill & Entrepreneurship Development (CSED), VIT Chennai",
-    role: "HR Representative",
+    role: "HR Rep.",
     start: "",
     end: "",
     detail: [],
@@ -130,7 +130,7 @@ export const hackathons: HackathonEntry[] = [
     result: "1st Place, Team Perry the Platypus",
     date: "March 2025",
     organizer: "HackHub'25, IEEE Computer Society VITC, sponsored by GitHub & Devfolio",
-    team: "With Prannavakhanth A, Lohita Lakshmi L.S, and Prasanth V",
+    team: "With Prannavakhanth A and Lohita Lakshmi L.S",
     projectSlug: "autcore",
     problem:
       "Autism screening tools are largely subjective and inaccessible; the team set out to make early screening faster, more objective, and more available.",
@@ -141,6 +141,6 @@ export const hackathons: HackathonEntry[] = [
       "A conversational assistant layer for guided interaction.",
     ],
     contribution:
-      "Built the web platform with Prasanth V, integrating the ML/CV components, real-time analysis, and the user-facing experience, joining a 36-hour hackathon with 24 hours remaining. Placed 1st out of 500 teams that entered (60 reached the final round).",
+      "Built the web platform, integrating the ML/CV components, real-time analysis, and the user-facing experience, joining a 36-hour hackathon with 24 hours remaining. Placed 1st out of 500 teams that entered (60 reached the final round).",
   },
 ];

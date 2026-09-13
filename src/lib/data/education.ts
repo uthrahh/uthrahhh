@@ -18,7 +18,7 @@ export const education: EducationEntry[] = [
       { label: "Rotaractor - Rotaract Club of VIT-C" },
       { label: "Committee Coordinator - TechnoVIT'25" },
       { label: "Organizer - Spectrum'25, VOID.v1, Glytch'25" },
-      { label: "HR Representative - Centre for Skill & Entrepreneurship Development (CSED)" },
+      { label: "HR Rep. - Centre for Skill & Entrepreneurship Development (CSED)" },
       { label: "Member of Management - Microsoft Innovations Club" },
       { label: "Graphic Designer - Arignar Anna Thamizh Mandram" },
     ],

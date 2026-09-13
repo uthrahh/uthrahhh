@@ -44,12 +44,6 @@ export const projects: Project[] = [
     gallery: [
       {
         kind: "team",
-        src: "/autcore-gallery-2.jpeg",
-        alt: "Team Perry the Platypus at HackHub'25",
-        aspect: "4/3",
-      },
-      {
-        kind: "team",
         src: "/autcore-gallery-3.jpeg",
         alt: "Team demonstrating AutCore to a judge at HackHub'25",
         aspect: "4/3",
@@ -72,7 +66,7 @@ export const projects: Project[] = [
       {
         heading: "My contribution",
         body: [
-          "Built the web platform with Prasanth V: integrating the computer-vision and speech models behind a real-time interface, handling session state through the multi-step screening flow, and presenting the risk evaluation in a way a non-clinical user could understand.",
+          "Built the web platform: integrating the computer-vision and speech models behind a real-time interface, handling session state through the multi-step screening flow, and presenting the risk evaluation in a way a non-clinical user could understand.",
         ],
       },
       {
@@ -358,10 +352,11 @@ export const projects: Project[] = [
         ],
       },
       {
-        heading: "Solution",
+        heading: "Key features",
         body: [
-          "A unified tracking suite (menstrual cycle, nutrition, activity, sleep, mental wellbeing, preventive care) behind role-based access for three user types: the end user (Woman), a Wellness Coach with permission-gated visibility into a user's data, and an Admin managing users and content.",
+          "End-to-end tracking in one place: menstrual cycle, nutrition, activity, sleep, mental wellbeing, and preventive care share a single timeline, instead of the fragmented single-purpose apps most women stitch together today.",
           "Senior Mode is a fully separate navigation model, not a scaled-up version of the standard UI: high-contrast typography, larger touch targets, and a short list of plain-language tiles ('My health', 'My medicines', 'My appointments') that the user chooses themselves in Settings, rather than a fixed menu.",
+          "Role-based access for three user types: the end user (Woman), a Wellness Coach with permission-gated visibility into a user's data, and an Admin managing users and content.",
           "Frontend is built against a replaceable mock service layer (every feature calls a function in `src/services/*`, never `fetch` directly), so the real Express/PostgreSQL API, already scaffolded with JWT auth, can be wired in without touching any component.",
         ],
       },

@@ -19,7 +19,7 @@ export function SkillChip({ skill }: { skill: string }) {
   const panelId = useId();
 
   if (!usage.length) {
-    return <span className="text-[15px] text-ink">{skill}</span>;
+    return <span className="text-[14px] text-ink">{skill}</span>;
   }
 
   return (
@@ -32,7 +32,7 @@ export function SkillChip({ skill }: { skill: string }) {
         onMouseLeave={() => setOpen(false)}
         onFocus={() => setOpen(true)}
         onBlur={() => setOpen(false)}
-        className="cursor-default text-[15px] text-ink no-underline outline-none transition-colors hover:text-accent-strong focus-visible:text-accent-strong"
+        className="cursor-default text-[14px] text-ink no-underline outline-none transition-colors hover:text-accent-strong focus-visible:text-accent-strong"
       >
         {skill}
       </button>

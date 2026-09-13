@@ -17,6 +17,19 @@ export function AwardRibbon({ achievement }: { achievement: Achievement }) {
   );
 }
 
+/** Compact status ribbon overlaid on a project card's media, top corner —
+ * same treatment/position as AwardRibbon, for a project with no achievement
+ * but a status worth flagging at a glance (e.g. still in development). */
+export function StatusRibbon({ status }: { status: string }) {
+  return (
+    <div className="absolute left-0 top-0 z-10 flex items-center gap-2 bg-ink px-3 py-1.5 text-paper">
+      <span className="font-mono text-[10px] font-medium uppercase tracking-widest">
+        {status}
+      </span>
+    </div>
+  );
+}
+
 /** Full-weight award block used at the top of the project case study. */
 export function AwardBlock({ achievement }: { achievement: Achievement }) {
   return (

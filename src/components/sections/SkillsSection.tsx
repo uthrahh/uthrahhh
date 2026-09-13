@@ -20,7 +20,7 @@ export function SkillsSection() {
                   <span key={skill} className="inline-flex items-baseline">
                     <SkillChip skill={skill} />
                     {i < group.skills.length - 1 ? (
-                      <span className="ml-1 text-[15px] text-ink-faint">·</span>
+                      <span className="ml-1 text-[14px] text-ink-faint">·</span>
                     ) : null}
                   </span>
                 ))}
