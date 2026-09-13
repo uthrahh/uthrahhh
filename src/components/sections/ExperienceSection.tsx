@@ -1,6 +1,8 @@
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/ui";
-import { WorkstreamRow } from "@/components/WorkstreamRow";
+import { ExperienceProjectBarrel } from "@/components/ExperienceProjectBarrel";
+import { ExperienceHighlights } from "@/components/ExperienceHighlights";
+import { MediaFrame } from "@/components/MediaFrame";
 import { experience } from "@/lib/data/experience";
 import { communitySocial } from "@/lib/data/leadership";
 
@@ -33,30 +35,18 @@ export function ExperienceSection() {
               </div>
 
               <p className="mt-2 font-mono text-xs uppercase tracking-wide text-ink-faint">
-                {exp.employmentType} · {exp.workMode} · ({exp.duration})
+                {exp.employmentType} · {exp.workMode} · {exp.duration}
               </p>
 
               <div className="mt-3 grid gap-x-10 gap-y-3 lg:grid-cols-2">
-                <div>
-                  <p className="max-w-md text-base leading-relaxed text-ink-muted">
-                    {exp.summary}
-                  </p>
-                  {exp.highlights?.length ? (
-                    <ul className="mt-2 max-w-md space-y-1">
-                      {exp.highlights.map((h, i) => (
-                        <li key={i} className="flex gap-2 text-sm leading-relaxed text-ink-muted">
-                          <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true" />
-                          {h}
-                        </li>
-                      ))}
-                    </ul>
+                <div className="max-w-md">
+                  {exp.summary ? (
+                    <ExperienceHighlights summary={exp.summary} groups={exp.highlightGroups ?? []} />
                   ) : null}
                 </div>
 
                 <div>
-                  {exp.workstreams.map((ws) => (
-                    <WorkstreamRow key={ws.title} workstream={ws} />
-                  ))}
+                  <ExperienceProjectBarrel workstreams={exp.workstreams} />
                 </div>
               </div>
             </div>
@@ -66,30 +56,38 @@ export function ExperienceSection() {
               not framed as employment. */}
           {communitySocial.map((item) => (
             <div key={item.org} className="border-t border-border pt-5">
-              <h3 className="font-display text-lg leading-snug text-ink sm:text-xl">
-                {item.role}
-                <span className="text-ink-muted"> · </span>
-                {item.orgUrl ? (
-                  <a
-                    href={item.orgUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-accent-strong hover:text-accent"
-                  >
-                    {item.org}
-                  </a>
-                ) : (
-                  item.org
-                )}
-              </h3>
-              <p className="mt-2 font-mono text-xs uppercase tracking-wide text-ink-faint">
-                Volunteer · {item.start} – {item.end}
-              </p>
-              {item.detail?.length ? (
-                <p className="mt-2 max-w-2xl text-base leading-relaxed text-ink-muted">
-                  {item.detail[0]}
-                </p>
-              ) : null}
+              <div className="flex flex-col gap-4 sm:flex-row sm:justify-between">
+                <div className="min-w-0">
+                  <h3 className="font-display text-lg leading-snug text-ink sm:text-xl">
+                    {item.role}
+                    <span className="text-ink-muted"> · </span>
+                    {item.orgUrl ? (
+                      <a
+                        href={item.orgUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-accent-strong hover:text-accent"
+                      >
+                        {item.org}
+                      </a>
+                    ) : (
+                      item.org
+                    )}
+                  </h3>
+                  <p className="mt-2 font-mono text-xs uppercase tracking-wide text-ink-faint">
+                    Volunteer · {item.start} – {item.end}
+                  </p>
+                  {item.detail?.length ? (
+                    <p className="mt-2 max-w-2xl text-base leading-relaxed text-ink-muted">
+                      {item.detail[0]}
+                    </p>
+                  ) : null}
+                </div>
+
+                {item.photo ? (
+                  <MediaFrame asset={item.photo} className="w-full shrink-0 sm:w-40" />
+                ) : null}
+              </div>
             </div>
           ))}
         </div>

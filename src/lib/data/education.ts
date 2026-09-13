@@ -1,17 +1,21 @@
 import type { EducationEntry, CertificationEntry } from "@/lib/types";
 import { clubLeadership } from "@/lib/data/leadership";
 
+// Media convention: drop VIT photos into /public named `vit-photo-1.<ext>`,
+// `vit-photo-2.<ext>`, etc., then set that path as the matching entry's
+// `src` below (see the media convention note atop projects.ts for why a
+// missing `src` is safe — it just shows a placeholder until then).
+
 export const education: EducationEntry[] = [
   {
-    institution: "Vellore Institute of Technology, Chennai",
-    institutionUrl: "https://chennai.vit.ac.in",
+    institution: "Vellore Institute of Technology (VIT), Chennai",
+    institutionUrl: "https://chennai.vit.ac.in/",
     degree: "B.Tech. in Computer Science and Engineering",
     start: "2023",
     end: "May 2027",
     activities: [
       { label: "Chairperson - Open Source Programming Club", history: clubLeadership },
       { label: "Rotaractor - Rotaract Club of VIT-C" },
-      { label: "Summer Research Intern - Center for Human Movement Analytics" },
       { label: "Committee Coordinator - TechnoVIT'25" },
       { label: "Organizer - Spectrum'25, VOID.v1, Glytch'25" },
       { label: "HR Representative - Centre for Skill & Entrepreneurship Development (CSED)" },
@@ -28,10 +32,10 @@ export const education: EducationEntry[] = [
       "Data Analytics",
     ],
     photos: [
-      { kind: "event", alt: "VIT Chennai photo, to be added", aspect: "4/3" },
-      { kind: "event", alt: "VIT Chennai photo, to be added", aspect: "4/3" },
-      { kind: "event", alt: "VIT Chennai photo, to be added", aspect: "4/3" },
-      { kind: "event", alt: "VIT Chennai photo, to be added", aspect: "4/3" },
+      { kind: "event", src: "/vit-photo-1.jpeg", alt: "VIT Chennai University Day 2026", aspect: "4/3" },
+      { kind: "event", src: "/vit-photo-3.jpeg", alt: "GlitchCon hackathon at VIT Chennai", aspect: "4/3" },
+      { kind: "event", src: "/vit-photo-4.jpeg", alt: "Spectrum hackathon at VIT Chennai", aspect: "4/3" },
+      { kind: "event", src: "/vit-photo-5.jpeg", alt: "Open Source Programming Club members at VIT Chennai", aspect: "4/3" },
     ],
   },
   {

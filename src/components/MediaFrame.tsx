@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { MediaAsset, MediaKind } from "@/lib/types";
 
 const KIND_LABEL: Record<MediaKind, string> = {
@@ -78,7 +78,7 @@ function KindIcon({ kind }: { kind: MediaKind }) {
       );
     case "portrait":
       return (
-        <svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
           <circle cx="11" cy="8.5" r="3.5" {...common} />
           <path d="M4 19c0-4 3-7 7-7s7 3 7 7" {...common} strokeLinecap="round" />
         </svg>
@@ -91,13 +91,108 @@ function Placeholder({ asset }: { asset: MediaAsset }) {
     <div
       role="img"
       aria-label={asset.alt}
-      className="media-placeholder absolute inset-0 flex flex-col items-center justify-center gap-2.5 border border-dashed border-border-strong bg-paper-sunken text-ink-faint"
+      className="media-placeholder absolute inset-0 flex flex-col items-center justify-center gap-2.5 rounded-lg border border-dashed border-border-strong bg-paper-sunken text-ink-faint"
     >
       <KindIcon kind={asset.kind} />
       <span className="font-mono text-[10px] uppercase tracking-widest">
         {KIND_LABEL[asset.kind]}
       </span>
     </div>
+  );
+}
+
+/**
+ * Full-size lightbox for a single MediaAsset. Mirrors the accessible
+ * <dialog> pattern already used by ProjectDetailModal: native showModal(),
+ * Escape and backdrop-click close for free, focus restored to the trigger
+ * on close. The image renders with object-contain so its true aspect ratio
+ * is preserved instead of the cropped object-cover used in card/frame view.
+ */
+function Lightbox({
+  asset,
+  open,
+  onClose,
+}: {
+  asset: MediaAsset;
+  open: boolean;
+  onClose: () => void;
+}) {
+  const dialogRef = useRef<HTMLDialogElement>(null);
+
+  // Mirrors ProjectDetailModal: the <dialog> stays mounted and is driven
+  // imperatively via showModal()/close() rather than being mounted only
+  // while open. Closing it this way (instead of unmounting the element)
+  // is what makes the browser restore focus to the trigger button and
+  // fire the native "close" event for Escape/backdrop-click.
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+    if (open && !dialog.open) {
+      dialog.showModal();
+    } else if (!open && dialog.open) {
+      dialog.close();
+    }
+  }, [open]);
+
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+    const handleClose = () => onClose();
+    dialog.addEventListener("close", handleClose);
+    return () => dialog.removeEventListener("close", handleClose);
+  }, [onClose]);
+
+  useEffect(() => {
+    if (!open) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [open]);
+
+  // Explicit Escape handling alongside the native <dialog> behavior, since
+  // native support for closing a modal dialog on Escape is inconsistent
+  // enough across browsers/automation not to rely on alone.
+  useEffect(() => {
+    if (!open) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [open, onClose]);
+
+  return (
+    <dialog
+      ref={dialogRef}
+      aria-label={asset.alt}
+      className="m-0 h-full max-h-full w-full max-w-full border-0 bg-transparent p-0 backdrop:bg-ink/80 backdrop:backdrop-blur-sm open:animate-none"
+      onClick={(e) => {
+        if (e.target === dialogRef.current) onClose();
+      }}
+    >
+      {open ? (
+        <div className="relative flex h-full w-full items-center justify-center p-4 sm:p-10">
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close"
+            className="absolute right-3 top-3 flex h-10 w-10 items-center justify-center rounded-sm text-white/85 transition-colors hover:text-white sm:right-5 sm:top-5"
+          >
+            <svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 3l10 10M13 3 3 13" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+            </svg>
+          </button>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={asset.src}
+            alt={asset.alt}
+            className="max-h-full max-w-full rounded-lg object-contain"
+          />
+        </div>
+      ) : null}
+    </dialog>
   );
 }
 
@@ -114,6 +209,7 @@ export function MediaFrame({
   imgClassName = "",
   priority = false,
   fill = false,
+  lightbox = true,
 }: {
   asset: MediaAsset;
   className?: string;
@@ -125,45 +221,74 @@ export function MediaFrame({
    * product-style card) already defines the box and the image is a
    * background layer with content stacked on top of it. */
   fill?: boolean;
+  /** Clicking the image opens it in a larger lightbox view. Defaults to
+   * true; set false when the image already sits inside its own click
+   * target (e.g. a card whose click opens a full detail view). Has no
+   * effect in `fill` mode, which never gets a lightbox trigger. */
+  lightbox?: boolean;
 }) {
   const [errored, setErrored] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
   const aspectClass = ASPECT_CLASS[asset.aspect ?? "4/3"];
   const showImage = Boolean(asset.src) && !errored;
+  const canEnlarge = showImage && !fill && lightbox;
+
+  const img = (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={asset.src}
+      alt={asset.alt}
+      loading={priority ? "eager" : "lazy"}
+      decoding="async"
+      onError={() => setErrored(true)}
+      className={`h-full w-full object-cover ${imgClassName}`}
+    />
+  );
 
   const frame = (
     <div
       className={
         fill
-          ? "absolute inset-0 overflow-hidden bg-paper-sunken"
-          : `relative overflow-hidden border border-border bg-paper-sunken ${aspectClass}`
+          ? "absolute inset-0 overflow-hidden rounded-lg bg-paper-sunken"
+          : `relative overflow-hidden rounded-lg border border-border bg-paper-sunken ${aspectClass}`
       }
     >
       {showImage ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={asset.src}
-          alt={asset.alt}
-          loading={priority ? "eager" : "lazy"}
-          decoding="async"
-          onError={() => setErrored(true)}
-          className={`h-full w-full object-cover ${imgClassName}`}
-        />
+        canEnlarge ? (
+          <button
+            type="button"
+            onClick={() => setLightboxOpen(true)}
+            aria-label={`View larger image: ${asset.alt}`}
+            className="block h-full w-full cursor-zoom-in"
+          >
+            {img}
+          </button>
+        ) : (
+          img
+        )
       ) : (
         <Placeholder asset={asset} />
       )}
     </div>
   );
 
-  if (fill) {
-    return <div className={className}>{frame}</div>;
-  }
-
-  return (
+  const wrapped = fill ? (
+    <div className={className}>{frame}</div>
+  ) : (
     <figure className={className}>
       {frame}
       {asset.caption ? (
         <figcaption className="mt-2 text-xs text-ink-faint">{asset.caption}</figcaption>
       ) : null}
     </figure>
+  );
+
+  return (
+    <>
+      {wrapped}
+      {canEnlarge ? (
+        <Lightbox asset={asset} open={lightboxOpen} onClose={() => setLightboxOpen(false)} />
+      ) : null}
+    </>
   );
 }

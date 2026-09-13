@@ -1,5 +1,11 @@
 import type { Project } from "@/lib/types";
 
+// Media convention: drop new project images into /public named
+// `<slug>-cover.<ext>` or `<slug>-gallery-1.<ext>`, `<slug>-gallery-2.<ext>`,
+// etc. (slug = this array's `slug` field), then set that exact path as the
+// matching asset's `src` below. MediaFrame already renders a labeled
+// placeholder for any asset with no `src` (or a `src` that 404s), so this is
+// the only edit needed per photo — no other code changes.
 export const projects: Project[] = [
   {
     slug: "autcore",
@@ -30,13 +36,24 @@ export const projects: Project[] = [
       year: "2025",
     },
     cover: {
-      kind: "product",
-      alt: "AutCore screening interface showing real-time facial and speech analysis",
+      kind: "team",
+      src: "/autcore-gallery-2.jpeg",
+      alt: "Team Perry the Platypus celebrating AutCore's 1st place win at HackHub'25",
       aspect: "16/9",
     },
     gallery: [
-      { kind: "dashboard", alt: "Symptom profiling and risk evaluation output", aspect: "4/3" },
-      { kind: "team", alt: "Team Perry the Platypus at HackHub'25", aspect: "4/3" },
+      {
+        kind: "team",
+        src: "/autcore-gallery-2.jpeg",
+        alt: "Team Perry the Platypus at HackHub'25",
+        aspect: "4/3",
+      },
+      {
+        kind: "team",
+        src: "/autcore-gallery-3.jpeg",
+        alt: "Team demonstrating AutCore to a judge at HackHub'25",
+        aspect: "4/3",
+      },
     ],
     links: [],
     sections: [
@@ -84,8 +101,9 @@ export const projects: Project[] = [
     featured: true,
     status: "Shipped internally",
     cover: {
-      kind: "screenshot",
-      alt: "AIC ERP admin dashboard showing startup directory and lifecycle status",
+      kind: "website",
+      src: "/aic-erp-cover.jpeg",
+      alt: "AIC-CIIC public website, part of the ERP platform's shipped scope",
       aspect: "16/9",
     },
     gallery: [
@@ -146,9 +164,18 @@ export const projects: Project[] = [
     status: "Shipped internally",
     cover: {
       kind: "screenshot",
+      src: "/aic-facility-booking-cover.jpeg",
       alt: "Facility booking calendar showing lab and hall reservations",
       aspect: "4/3",
     },
+    gallery: [
+      {
+        kind: "screenshot",
+        src: "/aic-facility-booking-gallery-1.jpeg",
+        alt: "Lab booking form with time-slot and equipment selection",
+        aspect: "4/3",
+      },
+    ],
     links: [
       { label: "Repository", href: "https://github.com/uthrahh/AIC-CIIC-Facility-Booking", kind: "repo" },
     ],
@@ -190,9 +217,24 @@ export const projects: Project[] = [
     status: "Shipped internally",
     cover: {
       kind: "dashboard",
+      src: "/aic-worklog-automation-cover.jpeg",
       alt: "Worklog automation dashboard showing daily task extraction summary",
       aspect: "4/3",
     },
+    gallery: [
+      {
+        kind: "dashboard",
+        src: "/aic-worklog-automation-gallery-1.jpeg",
+        alt: "Pending and completed tasks view in the worklog dashboard",
+        aspect: "4/3",
+      },
+      {
+        kind: "code",
+        src: "/aic-worklog-automation-gallery-2.jpeg",
+        alt: "WhatsApp sync script parsing and posting extracted tasks",
+        aspect: "16/9",
+      },
+    ],
     links: [
       { label: "Repository", href: "https://github.com/uthrahh/AIC-Whatsapp-Automation-Platform", kind: "repo" },
     ],
@@ -236,8 +278,12 @@ export const projects: Project[] = [
       aspect: "16/9",
     },
     gallery: [
-      { kind: "screenshot", alt: "Admin dashboard with zone and rate card management", aspect: "4/3" },
-      { kind: "architecture", alt: "Pricing engine and assignment engine architecture", aspect: "4/3" },
+      {
+        kind: "screenshot",
+        src: "/last-mile-delivery-tracker-gallery-1.png",
+        alt: "Admin dashboard with zone and rate card management",
+        aspect: "4/3",
+      },
     ],
     links: [
       { label: "Repository", href: "https://github.com/uthrahh/Last-Mile-Delivery-Tracker", kind: "repo" },
@@ -295,9 +341,12 @@ export const projects: Project[] = [
     status: "Product in development",
     cover: {
       kind: "product",
+      src: "/women360-cover.png",
       alt: "Women360 dashboard showing unified health and wellness tracking",
       aspect: "4/3",
     },
+    // websiteUrl: "<live site URL once hosted>" — set this and the case
+    // study picks up a "Website" link automatically, no component changes.
     links: [
       { label: "Repository", href: "https://github.com/uthrahh/Women360", kind: "repo" },
     ],
@@ -343,12 +392,23 @@ export const projects: Project[] = [
     status: "Completed",
     cover: {
       kind: "dashboard",
+      src: "/reckitt-sales-analytics-pipeline-cover.png",
       alt: "Power BI executive overview dashboard built on the curated star schema",
       aspect: "16/9",
     },
     gallery: [
-      { kind: "code", alt: "PySpark validation and star-schema build stage", aspect: "4/3" },
-      { kind: "architecture", alt: "Bronze to curated pipeline flow diagram", aspect: "4/3" },
+      {
+        kind: "code",
+        src: "/reckitt-sales-analytics-pipeline-gallery-1.svg",
+        alt: "Sequence diagram of the ETL pipeline's ingestion, validation, cleaning, and star-schema build stages",
+        aspect: "4/3",
+      },
+      {
+        kind: "architecture",
+        src: "/reckitt-sales-analytics-pipeline-gallery-2.svg",
+        alt: "Bronze to curated pipeline flow diagram",
+        aspect: "4/3",
+      },
     ],
     links: [
       { label: "Repository", href: "https://github.com/uthrahh/Reckitt-Dashboard", kind: "repo" },

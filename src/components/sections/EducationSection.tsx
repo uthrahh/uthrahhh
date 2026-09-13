@@ -1,6 +1,7 @@
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/ui";
 import { MediaFrame } from "@/components/MediaFrame";
+import { HackathonAchievement } from "@/components/HackathonAchievement";
 import { education, certifications } from "@/lib/data/education";
 import { hackathons } from "@/lib/data/leadership";
 import type { ActivityItem } from "@/lib/types";
@@ -84,7 +85,7 @@ export function EducationSection() {
   return (
     <section id="education" className="scroll-mt-6 border-b border-border">
       <Container className="py-5 sm:py-6">
-        <SectionHeading eyebrow="Education" />
+        <SectionHeading eyebrow="Education" title="" />
 
         <div className="mt-4 space-y-4">
           {/* University */}
@@ -101,8 +102,8 @@ export function EducationSection() {
                 <p className="mt-1.5 text-sm font-medium text-ink-muted">{university.degree}</p>
               ) : null}
 
-              <div className="mt-4 grid gap-x-10 gap-y-4 lg:grid-cols-2">
-                {/* Left: Activities & Societies */}
+              {/* Row 1: Activities & Societies | Achievements */}
+              <div className="mt-5 grid gap-x-10 gap-y-7 lg:grid-cols-2">
                 <div>
                   <p className={LABEL_CLASS}>Activities &amp; Societies</p>
                   <ul className="space-y-2.5">
@@ -112,38 +113,29 @@ export function EducationSection() {
                   </ul>
                 </div>
 
-                {/* Right: Achievements + Relevant coursework */}
                 <div>
                   <p className={LABEL_CLASS}>Achievements</p>
                   <ul className="divide-y divide-border border border-border">
                     {hackathons.map((h) => (
-                      <li key={h.name} className="border-l-2 border-l-accent px-4 py-3">
-                        <p className="font-display text-[15px] text-ink">{h.result}</p>
-                        <p className="mt-0.5 text-sm text-ink-muted">{h.name}</p>
-                        <p className="mt-1.5 font-mono text-[11px] text-ink-faint">
-                          {h.organizer}
-                        </p>
-                      </li>
+                      <HackathonAchievement key={h.name} hackathon={h} />
                     ))}
                   </ul>
-                  <p className="mt-3 text-xs text-ink-faint">
-                    AutCore&apos;s full case study, including the award, is under Projects.
-                  </p>
-
-                  {university.coursework.length ? (
-                    <div className="mt-3">
-                      <p className={LABEL_CLASS}>Relevant Coursework</p>
-                      <p className="text-sm leading-relaxed text-ink-muted">
-                        {university.coursework.join(" · ")}
-                      </p>
-                    </div>
-                  ) : null}
                 </div>
               </div>
 
+              {/* Row 2: Relevant Coursework, full width */}
+              {university.coursework.length ? (
+                <div className="mt-7 border-t border-border pt-5">
+                  <p className={LABEL_CLASS}>Relevant Coursework</p>
+                  <p className="text-sm leading-relaxed text-ink-muted">
+                    {university.coursework.join(" · ")}
+                  </p>
+                </div>
+              ) : null}
+
               {/* Photos: reserved row, placeholders until real photos are added */}
               {university.photos?.length ? (
-                <div className="mt-4 border-t border-border pt-4">
+                <div className="mt-7 border-t border-border pt-5">
                   <p className={LABEL_CLASS}>Photos</p>
                   <div className="flex gap-3 overflow-x-auto sm:grid sm:grid-cols-4 sm:overflow-visible">
                     {university.photos.map((photo, i) => (
@@ -172,15 +164,15 @@ export function EducationSection() {
                 {school.levels ? (
                   <div>
                     <p className={LABEL_CLASS}>Academics</p>
-                    <ul className="space-y-2">
+                    <div className="grid grid-cols-2 gap-3">
                       {school.levels.map((lvl) => (
-                        <li key={lvl.grade} className="text-sm text-ink">
+                        <p key={lvl.grade} className="text-sm text-ink">
                           <span className="font-medium">{lvl.grade}</span>
                           <span className="text-ink-muted"> · {lvl.board}</span>
                           {lvl.result ? <span className="text-ink-muted"> · {lvl.result}</span> : null}
-                        </li>
+                        </p>
                       ))}
-                    </ul>
+                    </div>
                   </div>
                 ) : null}
 

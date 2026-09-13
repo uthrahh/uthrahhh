@@ -61,6 +61,10 @@ export type Project = {
     | "Award winner"
     | "Product in development";
   achievement?: Achievement;
+  /** Live site URL, once the project is hosted. Rendered as its own
+   * "Website" link alongside `links` when set; omitted entirely until then
+   * — no code changes needed to add it later. */
+  websiteUrl?: string;
   links: ProjectLink[];
   sections: ProjectSection[];
   metrics?: { label: string; value: string }[];
@@ -90,12 +94,14 @@ export type ExperienceItem = {
   duration: string;
   start: string;
   end: string;
-  summary: string;
-  /** Compact, scannable responsibility/achievement bullets shown under the
-   * summary paragraph — kept separate from `summary` so the intro reads as
-   * a short paragraph and the specifics read as a real list, not one
-   * run-on block of text. */
-  highlights?: string[];
+  /** Optional intro paragraph shown above `highlightGroups`. Some entries
+   * (e.g. AIC) intentionally have no separate intro, only the bullets. */
+  summary?: string;
+  /** Compact, scannable responsibility/achievement bullets, clustered into
+   * labeled groups (e.g. "Delivered" vs "Platform & exposure") so a longer
+   * bullet list still scans quickly. Supports `**bold**` markdown-style
+   * emphasis within each bullet for selectively highlighting key terms. */
+  highlightGroups?: { label: string; items: string[] }[];
   workstreams: Workstream[];
   technologies: string[];
 };
@@ -107,6 +113,9 @@ export type ActivityEntry = {
   start: string;
   end: string;
   detail?: string[];
+  /** Optional single photo shown alongside this entry (e.g. a volunteering
+   * activity photo). Renders a placeholder until `src` is set. */
+  photo?: MediaAsset;
 };
 
 export type HackathonEntry = {
@@ -118,6 +127,9 @@ export type HackathonEntry = {
   problem: string;
   solution: string[];
   contribution: string;
+  /** Slug of the matching entry in `projects`, when this hackathon result
+   * has a full case study — makes the achievement clickable through to it. */
+  projectSlug?: string;
 };
 
 export type SkillGroup = {

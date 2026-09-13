@@ -12,15 +12,25 @@ export const experience: ExperienceItem[] = [
     start: "July 2026",
     end: "September 2026",
     summary:
-      "Worked as a Data Engineer Intern on enterprise data and analytics solutions, focusing on scalable data pipelines, complex data transformation, and business intelligence.",
-    highlights: [
-      "Designed and developed ETL/ELT pipelines using Python, PySpark, and SQL.",
-      "Built structured datasets through data cleaning, transformation, feature engineering, and dimensional modeling.",
-      "Developed star schemas and analytical data models for efficient reporting and business intelligence.",
-      "Created interactive Power BI dashboards to translate data into actionable business insights.",
-      "Worked with Databricks, Delta Lake, Apache Spark, and lakehouse architecture for scalable data processing.",
-      "Explored AI-powered data and ERP intelligence solutions using natural-language interaction with enterprise data and analytics workflows.",
-      "Gained experience working with SAP-oriented enterprise data, data quality, governance, and analytics requirements.",
+      "Worked as a Data Engineer Intern on enterprise data and analytics solutions, focusing on building scalable data pipelines, transforming complex datasets, and developing business intelligence solutions.",
+    highlightGroups: [
+      {
+        label: "Delivered",
+        items: [
+          "Designed and developed **ETL/ELT pipelines** using Python, PySpark, SQL, and modern data engineering practices.",
+          "Built structured datasets using **data cleaning, transformation, feature engineering, and dimensional modeling** techniques.",
+          "Developed **star schemas and analytical data models** to support efficient reporting and business intelligence.",
+          "Created interactive **Power BI dashboards** to translate large datasets into actionable business insights.",
+        ],
+      },
+      {
+        label: "Platform & exposure",
+        items: [
+          "Worked with **Databricks, Delta Lake, Spark, and lakehouse architecture** concepts for scalable data processing.",
+          "Explored **AI-powered data and ERP intelligence solutions**, integrating natural-language interaction with enterprise data and analytics workflows.",
+          "Worked in an **SAP-oriented enterprise environment**, gaining exposure to real-world business data, data quality, governance, and analytics requirements.",
+        ],
+      },
     ],
     workstreams: [
       {
@@ -92,7 +102,24 @@ export const experience: ExperienceItem[] = [
     start: "May 2026",
     end: "June 2026",
     summary:
-      "One-month, end-to-end internship: requirements analysis, system design, backend development, database engineering, integrations, testing, and deployment across three production-oriented internal systems. Designed relational schemas, Django models, REST APIs, validation logic, authentication, and role-based access shared across all three.",
+      "Worked as a Software Development Engineer Intern at AIC-CIIC, building a Django-based ERP platform, a FastAPI-based workflow automation system, and a Django/PostgreSQL facility booking platform end to end — covering database architecture, REST APIs and integrations, authentication and role-based access, and testing, debugging, and deployment.",
+    highlightGroups: [
+      {
+        label: "Delivered",
+        items: [
+          "**ERP Platform:** Designed and developed a centralized **Django-based ERP platform** for AIC-CIIC to digitize startup management, document workflows, services, lab operations, finance, and administrative processes previously handled through fragmented manual/WhatsApp-based workflows.",
+          "**WAP — Workflow Automation Platform:** Built a **Python/FastAPI-based workflow automation system** integrating PostgreSQL, Google Sheets, and WhatsApp Business APIs to streamline operational workflows, automate data movement, and reduce repetitive administrative work.",
+          "**Facility Booking System:** Engineered a **Django + PostgreSQL facility management and booking platform** for managing labs, equipment, halls, startups, and booking history, with CSV-based master-data ingestion and **FullCalendar/Google Calendar integration** for real-time scheduling visibility.",
+        ],
+      },
+      {
+        label: "Approach & ownership",
+        items: [
+          "**Backend & Data Architecture:** Designed relational database schemas, Django models, REST APIs, validation logic, authentication, role-based access, and reusable backend components across multiple production-oriented internal systems.",
+          "**End-to-End Ownership:** Worked across **requirements analysis, system design, backend development, database engineering, integrations, testing, debugging, and deployment**, translating operational requirements into maintainable software systems.",
+        ],
+      },
+    ],
     workstreams: [
       {
         title: "ERP Platform",

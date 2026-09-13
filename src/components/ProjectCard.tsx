@@ -13,21 +13,24 @@ export function ProjectCard({
     <button
       type="button"
       onClick={onOpen}
-      className="group relative block aspect-[4/3] overflow-hidden border border-border text-left transition-colors hover:border-accent"
+      className="group relative block aspect-[4/3] overflow-hidden rounded-lg border border-border text-left transition-colors hover:border-accent"
     >
       <MediaFrame
         asset={project.cover}
         fill
-        imgClassName="scale-100 transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+        imgClassName="scale-100 brightness-75 transition-[transform,filter] duration-500 ease-out group-hover:scale-[1.04] group-hover:brightness-90"
         className="absolute inset-0"
       />
 
       {project.achievement ? <AwardRibbon achievement={project.achievement} /> : null}
 
-      {/* Scrim: fixed dark gradient regardless of site theme, so overlaid text stays legible on any image. */}
+      {/* Scrim: fixed dark gradient regardless of site theme, so overlaid text
+          stays legible even over busy, text-heavy screenshots — sustained
+          dark opacity through the text zone (bottom ~45%), not just a thin
+          edge fade. */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/88 via-black/25 to-transparent transition-opacity duration-300 group-hover:from-black/92"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/95 from-0% via-black/60 via-45% to-transparent to-85% transition-opacity duration-300 group-hover:from-black/98"
       />
 
       <div className="absolute inset-x-0 bottom-0 p-5">

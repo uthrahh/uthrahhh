@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 const sections = [
@@ -88,6 +89,8 @@ function NavIcon({ name }: { name: IconName }) {
 export function FloatingNav() {
   const [active, setActive] = useState<string>("");
   const ticking = useRef(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const els = sections
@@ -114,6 +117,13 @@ export function FloatingNav() {
   }, []);
 
   function goTo(id: string) {
+    // On a separate route (e.g. /privacy, /terms) the one-page section IDs
+    // don't exist on the current DOM, so getElementById silently finds
+    // nothing — navigate back to the home page with the hash instead.
+    if (pathname !== "/") {
+      router.push(`/#${id}`);
+      return;
+    }
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 

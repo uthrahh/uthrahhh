@@ -15,6 +15,27 @@ const statusLabel: Record<Project["status"], string> = {
   "Product in development": "Product in development",
 };
 
+/** A section's body is one flowing paragraph when it has a single entry,
+ * or a scannable bulleted list when it has several — the latter is how
+ * most "Key engineering decisions" / "Architecture" sections are actually
+ * shaped (a handful of discrete points), and reads far better as bullets
+ * than as back-to-back paragraphs. */
+function SectionBody({ body }: { body: string[] }) {
+  if (body.length <= 1) {
+    return <p className="text-[15px] leading-relaxed text-ink-muted">{body[0]}</p>;
+  }
+  return (
+    <ul className="space-y-2.5">
+      {body.map((paragraph, i) => (
+        <li key={i} className="flex gap-2.5 text-[15px] leading-relaxed text-ink-muted">
+          <span className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true" />
+          <span>{paragraph}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export function ProjectDetailModal({
   project,
   onClose,
@@ -92,6 +113,22 @@ export function ProjectDetailModal({
               </div>
             ) : null}
 
+            {project.metrics ? (
+              <div className="mt-6 border border-border p-5">
+                <p className="mb-3 font-mono text-xs uppercase tracking-widest text-ink-faint">
+                  Impact
+                </p>
+                <div className="grid grid-cols-2 gap-5 sm:grid-cols-3">
+                  {project.metrics.map((m) => (
+                    <div key={m.label}>
+                      <dd className="font-display text-lg text-ink">{m.value}</dd>
+                      <dt className="text-sm text-ink-muted">{m.label}</dt>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+
             <div className="mt-6">
               <p className="mb-3 font-mono text-xs uppercase tracking-widest text-ink-faint">
                 Techstack
@@ -115,6 +152,16 @@ export function ProjectDetailModal({
               <div>
                 <dt className="font-mono text-[11px] uppercase tracking-wide text-ink-faint">Links</dt>
                 <dd className="mt-1 flex flex-col gap-1">
+                  {project.websiteUrl ? (
+                    <a
+                      href={project.websiteUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-accent-strong underline underline-offset-4 hover:text-accent"
+                    >
+                      Website ↗
+                    </a>
+                  ) : null}
                   {project.links.length ? (
                     project.links.map((l) => (
                       <a
@@ -127,7 +174,7 @@ export function ProjectDetailModal({
                         {l.label} ↗
                       </a>
                     ))
-                  ) : (
+                  ) : project.websiteUrl ? null : (
                     <span className="text-sm text-ink-faint">No public repository</span>
                   )}
                 </dd>
@@ -149,27 +196,12 @@ export function ProjectDetailModal({
               {project.sections.map((section) => (
                 <section key={section.heading}>
                   <h2 className="font-display text-xl text-ink">{section.heading}</h2>
-                  <div className="mt-3 space-y-3">
-                    {section.body.map((paragraph, j) => (
-                      <p key={j} className="text-[15px] leading-relaxed text-ink-muted">
-                        {paragraph}
-                      </p>
-                    ))}
+                  <div className="mt-3">
+                    <SectionBody body={section.body} />
                   </div>
                 </section>
               ))}
             </div>
-
-            {project.metrics ? (
-              <div className="mt-10 grid grid-cols-2 gap-5 border-t border-border pt-6 sm:grid-cols-3">
-                {project.metrics.map((m) => (
-                  <div key={m.label}>
-                    <dd className="font-display text-lg text-ink">{m.value}</dd>
-                    <dt className="text-sm text-ink-muted">{m.label}</dt>
-                  </div>
-                ))}
-              </div>
-            ) : null}
           </div>
         </div>
       ) : null}

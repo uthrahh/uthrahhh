@@ -2,7 +2,7 @@ import { Container } from "@/components/Container";
 import { RoleCylinder } from "@/components/RoleCylinder";
 import { TextCylinder } from "@/components/TextCylinder";
 import { EmailCopy } from "@/components/EmailCopy";
-import { MediaFrame } from "@/components/MediaFrame";
+import { ProtectedPhoto } from "@/components/ProtectedPhoto";
 import { site } from "@/lib/data/site";
 
 const SIGNATURE_STACK = [
@@ -101,17 +101,12 @@ export function HomeSection() {
           <div className="relative mx-auto shrink-0 lg:mx-0">
             <div
               aria-hidden="true"
-              className="absolute -bottom-3 -right-3 h-full w-full border border-accent"
+              className="absolute -bottom-2 -right-2 h-full w-full rounded-full bg-accent/25"
             />
-            <MediaFrame
-              asset={{
-                kind: "portrait",
-                src: "/profilephoto.jpg",
-                alt: `Portrait of ${site.name}`,
-                aspect: "3/4",
-              }}
+            <ProtectedPhoto
+              src="/profilephoto.jpg"
+              alt={`Portrait of ${site.name}`}
               className="relative w-36 sm:w-44 md:w-56 lg:w-64 xl:w-72"
-              imgClassName="object-top"
             />
           </div>
         </div>

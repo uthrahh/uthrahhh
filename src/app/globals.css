@@ -229,3 +229,68 @@ body {
     display: block;
   }
 }
+
+/* Vertical project barrel in Experience: a true 3D drum rotating around a
+   horizontal axis (rotateX), used to present several projects per role in a
+   compact, fixed-height footprint. Like the role/text cylinders above, the
+   ring itself spins continuously via a CSS keyframe animation rather than
+   being driven by discrete JS-stepped angles — each item sits at its own
+   fixed angle around the drum (see ExperienceProjectBarrel.tsx) and the
+   whole ring rotates smoothly underneath them. Perspective + translateZ
+   alone make the front-facing item read largest/clearest with no per-item
+   JS math, exactly as the horizontal cylinders rely on it for their curve.
+   `animation-play-state` toggles paused/running per instance, so any number
+   of barrels on the page animate fully independently of one another. */
+@keyframes project-barrel-spin {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(-360deg);
+  }
+}
+
+.project-barrel-scene {
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 15%,
+    black 85%,
+    transparent
+  );
+}
+
+.project-barrel-ring {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  transform-style: preserve-3d;
+  animation-name: project-barrel-spin;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.project-barrel-item {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.project-barrel-static {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-barrel-scene {
+    display: none;
+  }
+  .project-barrel-static {
+    display: block;
+  }
+}

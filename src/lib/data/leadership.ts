@@ -46,13 +46,6 @@ export const clubLeadership: ActivityEntry[] = [
 
 export const collegeActivities: ActivityEntry[] = [
   {
-    org: "Center for Human Movement Analytics, VIT Chennai",
-    role: "Summer Research Intern",
-    start: "",
-    end: "",
-    detail: [],
-  },
-  {
     org: "TechnoVIT'25, VIT Chennai",
     role: "Committee Coordinator",
     start: "",
@@ -98,12 +91,19 @@ export const communityUniversity: ActivityEntry[] = [
 export const communitySocial: ActivityEntry[] = [
   {
     org: "U&I Trust",
+    orgUrl: "https://uandi.org.in/",
     role: "Student Mentor Volunteer",
     start: "July 2026",
     end: "Present",
     detail: [
       "Provide weekly academic tutoring and mentorship to a group of primary school students, supporting their educational progress and personal development.",
     ],
+    photo: {
+      kind: "event",
+      src: "/uandi-photo-1.jpeg",
+      alt: "U&I mentoring session with primary school students",
+      aspect: "4/3",
+    },
   },
 ];
 
@@ -131,6 +131,7 @@ export const hackathons: HackathonEntry[] = [
     date: "March 2025",
     organizer: "HackHub'25, IEEE Computer Society VITC, sponsored by GitHub & Devfolio",
     team: "With Prannavakhanth A, Lohita Lakshmi L.S, and Prasanth V",
+    projectSlug: "autcore",
     problem:
       "Autism screening tools are largely subjective and inaccessible; the team set out to make early screening faster, more objective, and more available.",
     solution: [
