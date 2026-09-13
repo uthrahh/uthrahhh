@@ -6,9 +6,9 @@ import { WorkstreamRow } from "@/components/WorkstreamRow";
 import type { Workstream } from "@/lib/types";
 
 const RADIUS = 30;
-const PERSPECTIVE = 3600;
+const PERSPECTIVE = 1600;
 const SCENE_HEIGHT = 132;
-const SECONDS_PER_ITEM = 2.1;
+const SECONDS_PER_ITEM = 4.2;
 const RESUME_DELAY_MS = 6000;
 
 /**

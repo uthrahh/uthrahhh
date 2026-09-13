@@ -1,8 +1,11 @@
+"use client";
+
 import { Container } from "@/components/Container";
 import { RoleCylinder } from "@/components/RoleCylinder";
 import { TextCylinder } from "@/components/TextCylinder";
 import { EmailCopy } from "@/components/EmailCopy";
 import { ProtectedPhoto } from "@/components/ProtectedPhoto";
+import { useResumeModal } from "@/components/ResumeModalProvider";
 import { site } from "@/lib/data/site";
 
 const SIGNATURE_STACK = [
@@ -25,6 +28,8 @@ const SIGNATURE_STACK = [
 const CONTACT_LINK_STYLE = "text-accent-strong hover:text-accent";
 
 export function HomeSection() {
+  const openResumeModal = useResumeModal();
+
   return (
     <section
       id="home"
@@ -96,6 +101,18 @@ export function HomeSection() {
               >
                 GitHub
               </a>
+              {site.resumeAvailable ? (
+                <>
+                  <span className="text-border-strong">·</span>
+                  <button
+                    type="button"
+                    onClick={openResumeModal}
+                    className={`transition-colors ${CONTACT_LINK_STYLE}`}
+                  >
+                    Resume ↗
+                  </button>
+                </>
+              ) : null}
             </div>
           </div>
 

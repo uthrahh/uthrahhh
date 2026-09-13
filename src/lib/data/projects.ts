@@ -101,8 +101,8 @@ export const projects: Project[] = [
       aspect: "16/9",
     },
     gallery: [
-      { kind: "screenshot", alt: "Startup application review workflow", aspect: "4/3" },
-      { kind: "architecture", alt: "AIC ERP RBAC and module architecture", aspect: "4/3" },
+      { kind: "screenshot", src: "/aic-erp-gallery-1.png", alt: "Startup application review workflow", aspect: "4/3" },
+      { kind: "architecture", src: "/aic-erp-gallery-2.png", alt: "AIC ERP RBAC and module architecture", aspect: "4/3" },
     ],
     links: [
       { label: "Repository", href: "https://github.com/uthrahh/AIC-Enterprise-Resource-Planning", kind: "repo" },
@@ -268,6 +268,7 @@ export const projects: Project[] = [
     status: "Completed",
     cover: {
       kind: "product",
+      src: "/last-mile-delivery-tracker-cover.png",
       alt: "Last-Mile Delivery Tracker customer app showing live delivery tracking",
       aspect: "16/9",
     },
@@ -463,6 +464,7 @@ export const projects: Project[] = [
     status: "In progress",
     cover: {
       kind: "architecture",
+      src: "/ev-fleet-lakehouse-platform-cover.png",
       alt: "EV Fleet Lakehouse Medallion architecture: Bronze, Silver, Gold layers",
       aspect: "16/9",
     },
@@ -514,11 +516,17 @@ export const projects: Project[] = [
     status: "Proof of concept",
     cover: {
       kind: "architecture",
+      src: "/ai-powered-sap-erp-intelligence-assistant-cover.png",
       alt: "Query routing architecture between Databricks Genie and the RAG knowledge base",
       aspect: "16/9",
     },
     gallery: [
-      { kind: "documentation", alt: "Business glossary translating SAP fields to business terms", aspect: "4/3" },
+      {
+        kind: "documentation",
+        src: "/ai-powered-sap-erp-intelligence-assistant-gallery-1.png",
+        alt: "Business glossary translating SAP fields to business terms",
+        aspect: "4/3",
+      },
     ],
     links: [
       { label: "Repository", href: "https://github.com/uthrahh/AI-Powered-SAP-ERP-Intelligence-Assistant", kind: "repo" },
@@ -575,6 +583,7 @@ export const projects: Project[] = [
     status: "Proof of concept",
     cover: {
       kind: "code",
+      src: "/ai-data-engineering-assistant-cover.png",
       alt: "Streamlit chat interface with the intent classification prompt",
       aspect: "4/3",
     },
@@ -616,11 +625,17 @@ export const projects: Project[] = [
     status: "Completed",
     cover: {
       kind: "code",
+      src: "/capital-allocation-risk-optimization-cover.png",
       alt: "Optimizer output: selected loans and properties under budget constraint",
       aspect: "16/9",
     },
     gallery: [
-      { kind: "dashboard", alt: "Risk-adjusted return distribution across the loan portfolio", aspect: "4/3" },
+      {
+        kind: "dashboard",
+        src: "/capital-allocation-risk-optimization-gallery-1.png",
+        alt: "Risk-adjusted return distribution across the loan portfolio",
+        aspect: "4/3",
+      },
     ],
     links: [
       { label: "Repository", href: "https://github.com/uthrahh/Capital-Allocation---Risk-Optimization-Platform", kind: "repo" },
@@ -674,6 +689,7 @@ export const projects: Project[] = [
     status: "Product in development",
     cover: {
       kind: "screenshot",
+      src: "/budget-tracker-cover.png",
       alt: "Budget Tracker dashboard showing shared expenses and settlements",
       aspect: "4/3",
     },
@@ -716,6 +732,7 @@ export const projects: Project[] = [
     status: "Proof of concept",
     cover: {
       kind: "dashboard",
+      src: "/data-pipeline-sentinel-cover.png",
       alt: "Data Pipeline Sentinel UI concept with KPI cards and pipeline status table",
       aspect: "4/3",
     },

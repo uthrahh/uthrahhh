@@ -8,9 +8,9 @@ export function RoleCylinder() {
       <TextCylinder
         items={ROLES}
         separator=" · "
-        textClassName="font-mono text-sm uppercase tracking-normal text-accent sm:text-base"
+        textClassName="font-mono text-[15px] uppercase tracking-normal text-accent sm:text-[17px]"
         heightEm={1}
-        durationSeconds={14}
+        durationSeconds={20}
         perspective={3400}
         radiusScale={1.2}
         repeat={2}
