@@ -12,7 +12,7 @@ export const experience: ExperienceItem[] = [
     start: "July 2026",
     end: "September 2026",
     summary:
-      "Worked as a Data Engineer Intern on enterprise data and analytics solutions, focusing on building scalable data pipelines, transforming complex datasets, and developing business intelligence solutions.",
+      "Worked as a Data Engineer Intern building ETL/ELT pipelines, dimensional data models, and Power BI reporting on Databricks, in a SAP-oriented enterprise environment.",
     highlightGroups: [
       {
         label: "Delivered",

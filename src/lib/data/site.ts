@@ -2,7 +2,7 @@ export const site = {
   name: "Pavithra Uthrah R. K.",
   title: "Software Engineering & Data",
   tagline:
-    "CSE candidate building data pipelines, backend systems, and the software platforms that connect them.",
+    "Computer Science & Engineering candidate building data pipelines, backend systems, and the software platforms that connect them.",
   positioning:
     "Computer Science & Engineering candidate at Vellore Institute of Technology, Chennai, with a data-oriented focus: data pipelines, backend systems, and applied machine learning.",
   email: "uthrahrk@gmail.com",

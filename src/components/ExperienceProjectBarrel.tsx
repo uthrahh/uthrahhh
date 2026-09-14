@@ -86,7 +86,7 @@ export function ExperienceProjectBarrel({
 
   if (asList) {
     return (
-      <div>
+      <div className="overflow-hidden rounded-2xl border border-border px-4 sm:px-5">
         {workstreams.map((ws) => (
           <WorkstreamRow key={ws.title} workstream={ws} />
         ))}

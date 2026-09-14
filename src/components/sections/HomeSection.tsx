@@ -74,7 +74,7 @@ export function HomeSection() {
               I&apos;m a Computer Science &amp; Engineering candidate at{" "}
               <span className="font-medium text-ink">Vellore Institute of Technology, Chennai</span>{" "}
               (graduating 2027), with a <span className="font-medium text-ink">data-oriented</span>{" "}
-              focus: building data pipelines, backend systems, and the infrastructure that turns raw
+              focus: building data pipelines and the infrastructure that turns raw
               data into something a business can act on. My internships and projects span data
               engineering on Databricks, backend systems in Django and FastAPI, and applied machine
               learning, alongside four years of leadership running a 250+ member technical community

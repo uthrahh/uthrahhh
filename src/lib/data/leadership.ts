@@ -22,7 +22,7 @@ export const clubLeadership: ActivityEntry[] = [
       "Organized 3 national-level hackathons and 10+ workshops, competitions, and technical events across the tenure.",
       "Coordinated cross-functional teams spanning operations, design, technical, and outreach.",
       "Led recruitment of team leads across departments and ensured timely, high-quality delivery from technical departments.",
-      "Co-organized the club's 3 flagship annual hackathons - Spectrum'25(design, registration, sponsorship, and finance), void.V1(registration process, design, and on-day logistics) and Glytch'25(planning, execution, and liaison with institutional bodies)."
+      "Co-organized the club's 3 flagship annual hackathons - Spectrum'25 (design, registration, sponsorship, and finance), VOID.v1 (registration process, design, and on-day logistics) and Glytch'25 (planning, execution, and liaison with institutional bodies)."
     ],
   },
   {
