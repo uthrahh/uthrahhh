@@ -9,65 +9,21 @@ export function Tag({ children }: { children: ReactNode }) {
   );
 }
 
-export type EyebrowLogo = {
-  /** Light-theme (or theme-agnostic) image. */
-  src: string;
-  /** Optional dark-theme variant, swapped in via CSS (see .badge-logo-* in globals.css). */
-  darkSrc?: string;
-  alt: string;
-};
-
-/** Small circular logo badges, right-aligned on the eyebrow's own row. */
-function EyebrowLogos({ logos }: { logos: EyebrowLogo[] }) {
-  return (
-    <div className="flex items-center gap-2">
-      {logos.map((logo) => (
-        <span
-          key={logo.alt}
-          title={logo.alt}
-          className="flex h-6 w-6 shrink-0 items-center justify-center overflow-hidden rounded-full border border-border bg-paper-raised shadow-sm sm:h-[0.84375in] sm:w-[0.84375in]"
-        >
-          {logo.darkSrc ? (
-            <>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={logo.src} alt={logo.alt} className="badge-logo-light h-full w-full object-cover" />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={logo.darkSrc} alt={logo.alt} className="badge-logo-dark h-full w-full object-cover" />
-            </>
-          ) : (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img src={logo.src} alt={logo.alt} className="h-full w-full object-cover" />
-          )}
-        </span>
-      ))}
-    </div>
-  );
-}
-
 export function SectionHeading({
   eyebrow,
   title,
   description,
-  logos,
 }: {
   eyebrow?: string;
   title?: string;
   description?: string;
-  logos?: EyebrowLogo[];
 }) {
   return (
     <div>
-      {eyebrow || logos?.length ? (
-        <div className="mb-1 flex items-center justify-between gap-4">
-          {eyebrow ? (
-            <p className="font-mono text-sm font-medium uppercase tracking-widest text-accent">
-              {eyebrow}
-            </p>
-          ) : (
-            <span />
-          )}
-          {logos?.length ? <EyebrowLogos logos={logos} /> : null}
-        </div>
+      {eyebrow ? (
+        <p className="mb-1 font-mono text-[13px] font-medium uppercase tracking-widest text-accent">
+          {eyebrow}
+        </p>
       ) : null}
       <div className="max-w-2xl">
         {title ? (

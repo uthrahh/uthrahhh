@@ -167,7 +167,7 @@ function Lightbox({
     <dialog
       ref={dialogRef}
       aria-label={asset.alt}
-      className="m-0 h-full max-h-full w-full max-w-full border-0 bg-transparent p-0 backdrop:bg-ink/80 backdrop:backdrop-blur-sm open:animate-none"
+      className="m-0 h-full max-h-full w-full max-w-full border-0 bg-transparent p-0 backdrop:bg-ink/65 backdrop:backdrop-blur-md open:animate-none"
       onClick={(e) => {
         if (e.target === dialogRef.current) onClose();
       }}
@@ -178,7 +178,7 @@ function Lightbox({
             type="button"
             onClick={onClose}
             aria-label="Close"
-            className="absolute right-3 top-3 flex h-10 w-10 items-center justify-center rounded-sm text-white/85 transition-colors hover:text-white sm:right-5 sm:top-5"
+            className="absolute right-3 top-3 flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-black/40 text-white/85 backdrop-blur-md transition-colors hover:border-white/30 hover:bg-black/55 hover:text-white sm:right-5 sm:top-5"
           >
             <svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path d="M3 3l10 10M13 3 3 13" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />

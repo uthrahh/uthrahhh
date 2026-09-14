@@ -114,7 +114,7 @@ export function ProjectDetailModal({
             ) : null}
 
             {project.metrics ? (
-              <div className="mt-6 border border-border p-5">
+              <div className="mt-6 rounded-lg border border-border bg-paper-raised p-5">
                 <p className="mb-3 font-mono text-xs uppercase tracking-widest text-ink-faint">
                   Impact
                 </p>

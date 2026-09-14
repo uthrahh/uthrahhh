@@ -14,6 +14,13 @@
   --accent-soft: rgba(204, 85, 0, 0.12);
   --accent-ink: #ffffff;
   --focus-ring: #2b6cb0;
+  /* Glass-surface tokens: a translucent, blurred read of this theme's own
+     --paper-raised, not a separate "glass theme" pasted over the page.
+     Used selectively (see .glass below) — never a blanket treatment. */
+  --glass-bg: rgba(251, 250, 246, 0.72);
+  --glass-bg-active: rgba(251, 250, 246, 0.88);
+  --glass-border: rgba(22, 24, 26, 0.1);
+  --glass-border-active: rgba(204, 85, 0, 0.4);
 }
 
 :root[data-theme="dark"] {
@@ -30,6 +37,10 @@
   --accent-soft: rgba(204, 85, 0, 0.16);
   --accent-ink: #ffffff;
   --focus-ring: #6ca9e0;
+  --glass-bg: rgba(26, 26, 21, 0.62);
+  --glass-bg-active: rgba(26, 26, 21, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-active: rgba(204, 85, 0, 0.45);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -47,6 +58,10 @@
     --accent-soft: rgba(204, 85, 0, 0.16);
     --accent-ink: #ffffff;
     --focus-ring: #6ca9e0;
+    --glass-bg: rgba(26, 26, 21, 0.62);
+    --glass-bg-active: rgba(26, 26, 21, 0.82);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-border-active: rgba(204, 85, 0, 0.45);
   }
 }
 
@@ -150,28 +165,21 @@ body {
   --accent-soft: rgba(204, 85, 0, 0.18);
 }
 
-/* Eyebrow logo badges: a badge that carries a `darkSrc` swaps images by
-   theme, same pattern as the hero grid's dark-mode override above. */
-.badge-logo-dark {
-  display: none;
+/* Restrained glass surface: a subtle bordered, blurred layer — used
+   selectively (nav, project cards, the experience barrel, skill popups)
+   never as the page's default look. Backdrop-blur is applied per call
+   site via Tailwind's own backdrop-blur-* utility rather than baked in
+   here, so blur strength can be tuned per surface. */
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-:root[data-theme="dark"] .badge-logo-light {
-  display: none;
-}
-
-:root[data-theme="dark"] .badge-logo-dark {
-  display: block;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .badge-logo-light {
-    display: none;
-  }
-
-  :root:not([data-theme="light"]) .badge-logo-dark {
-    display: block;
-  }
+.glass:hover,
+.glass:focus-within {
+  background: var(--glass-bg-active);
+  border-color: var(--glass-border-active);
 }
 
 .prose-body a {

@@ -5,7 +5,6 @@ import { RoleCylinder } from "@/components/RoleCylinder";
 import { TextCylinder } from "@/components/TextCylinder";
 import { EmailCopy } from "@/components/EmailCopy";
 import { ProtectedPhoto } from "@/components/ProtectedPhoto";
-import { useResumeModal } from "@/components/ResumeModalProvider";
 import { site } from "@/lib/data/site";
 
 const SIGNATURE_STACK = [
@@ -28,8 +27,6 @@ const SIGNATURE_STACK = [
 const CONTACT_LINK_STYLE = "text-accent-strong hover:text-accent";
 
 export function HomeSection() {
-  const openResumeModal = useResumeModal();
-
   return (
     <section
       id="home"
@@ -73,12 +70,12 @@ export function HomeSection() {
             <p className="mt-8 max-w-xl text-[14px] leading-relaxed text-ink-muted sm:mt-10 sm:text-[15px]">
               I&apos;m a Computer Science &amp; Engineering candidate at{" "}
               <span className="font-medium text-ink">Vellore Institute of Technology, Chennai</span>{" "}
-              (graduating 2027), with a <span className="font-medium text-ink">data-oriented</span>{" "}
-              focus: building data pipelines and the infrastructure that turns raw
-              data into something a business can act on. My internships and projects span data
-              engineering on Databricks, backend systems in Django and FastAPI, and applied machine
-              learning, alongside four years of leadership running a 250+ member technical community
-              at VIT Chennai.
+              (graduating 2027), with a <span className="font-medium text-ink">data engineering</span>{" "}
+              focus: building the pipelines and infrastructure that turn raw
+              data into something a business can act on. My internships and projects center on data
+              engineering on Databricks, extended by backend systems in Django and FastAPI and applied
+              machine learning, alongside two years of leadership running a 250+ member technical
+              community at VIT Chennai.
             </p>
 
             <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
@@ -104,13 +101,13 @@ export function HomeSection() {
               {site.resumeAvailable ? (
                 <>
                   <span className="text-border-strong">·</span>
-                  <button
-                    type="button"
-                    onClick={openResumeModal}
+                  <a
+                    href={site.resumeUrl}
+                    download
                     className={`transition-colors ${CONTACT_LINK_STYLE}`}
                   >
                     Resume ↗
-                  </button>
+                  </a>
                 </>
               ) : null}
             </div>

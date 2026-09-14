@@ -8,11 +8,6 @@ import type { ActivityItem } from "@/lib/types";
 
 const LABEL_CLASS = "mb-4 font-mono text-xs uppercase tracking-widest text-accent";
 
-const EDUCATION_LOGOS = [
-  { src: "/vit-forlighttheme.png", darkSrc: "/vit-fordarktheme.png", alt: "Vellore Institute of Technology, Chennai" },
-  { src: "/sma-transparent.png", alt: "St. Michael's Academy, Chennai" },
-];
-
 function ActivityListItem({ item }: { item: ActivityItem }) {
   if (!item.history?.length) {
     return <li className="text-sm leading-relaxed text-ink-muted">{item.label}</li>;
@@ -90,7 +85,7 @@ export function EducationSection() {
   return (
     <section id="education" className="scroll-mt-6 border-b border-border">
       <Container className="py-5 sm:py-6">
-        <SectionHeading eyebrow="Education" title="" logos={EDUCATION_LOGOS} />
+        <SectionHeading eyebrow="Education" title="" />
 
         <div className="mt-4 space-y-4">
           {/* University */}

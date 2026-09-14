@@ -86,9 +86,7 @@ export const experience: ExperienceItem[] = [
       "Delta Lake",
       "Unity Catalog",
       "Power BI",
-      "DAX",
       "Databricks Genie",
-      "Snowflake",
     ],
   },
   {

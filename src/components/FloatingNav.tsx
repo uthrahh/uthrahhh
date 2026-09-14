@@ -132,7 +132,7 @@ export function FloatingNav() {
       {/* Desktop: compact floating left rail, icon-only with hover labels */}
       <nav
         aria-label="Primary"
-        className="fixed left-4 top-1/2 z-40 hidden -translate-y-1/2 flex-col items-stretch gap-1 border border-border bg-paper/90 p-1.5 backdrop-blur lg:flex"
+        className="glass fixed left-4 top-1/2 z-40 hidden -translate-y-1/2 flex-col items-stretch gap-1 rounded-lg p-1.5 backdrop-blur-md lg:flex"
       >
         {sections.map((s) => {
           const isActive = active === s.id;
@@ -171,7 +171,7 @@ export function FloatingNav() {
           compressing icons to illegible sizes or overflowing the page. */}
       <nav
         aria-label="Primary"
-        className="fixed inset-x-4 bottom-4 z-40 flex items-center gap-1 overflow-x-auto border border-border bg-paper/95 px-2 py-2 backdrop-blur lg:hidden"
+        className="glass fixed inset-x-4 bottom-4 z-40 flex items-center gap-1 overflow-x-auto rounded-lg px-2 py-2 backdrop-blur-md lg:hidden"
       >
         {sections.map((s) => {
           const isActive = active === s.id;

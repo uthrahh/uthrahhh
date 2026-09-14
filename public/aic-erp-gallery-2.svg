@@ -1,0 +1,48 @@
+<svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="600" height="450" fill="#f6f4ee"/>
+  <text x="30" y="36" font-size="16" font-weight="700" fill="#16181a">RBAC &amp; Module Architecture</text>
+  <text x="30" y="55" font-size="11.5" fill="#55564f">5 roles &#215; 11 Django apps, permission matrix over 30+ resource types</text>
+
+  <!-- roles -->
+  <g font-size="10.5" fill="#16181a">
+    <rect x="30" y="75" width="105" height="28" fill="#fbf1e6" stroke="#cc5500"/>
+    <text x="82" y="93" text-anchor="middle">Public User</text>
+    <rect x="145" y="75" width="105" height="28" fill="#fbf1e6" stroke="#cc5500"/>
+    <text x="197" y="93" text-anchor="middle">Applicant</text>
+    <rect x="260" y="75" width="105" height="28" fill="#fbf1e6" stroke="#cc5500"/>
+    <text x="312" y="93" text-anchor="middle">Startup</text>
+    <rect x="375" y="75" width="105" height="28" fill="#fbf1e6" stroke="#cc5500"/>
+    <text x="427" y="93" text-anchor="middle">Mentor</text>
+    <rect x="490" y="75" width="90" height="28" fill="#fbf1e6" stroke="#cc5500"/>
+    <text x="535" y="93" text-anchor="middle">Admin</text>
+  </g>
+
+  <!-- decorators/middleware -->
+  <rect x="30" y="118" width="550" height="24" fill="#f2f0ec" stroke="#85847a"/>
+  <text x="305" y="135" text-anchor="middle" font-size="10.5" fill="#55564f">RBAC decorators + middleware — permission matrix (view / create / edit / manage / full)</text>
+
+  <!-- 11 apps grid -->
+  <g font-size="10" fill="#16181a">
+    <rect x="30" y="160" width="127" height="30" fill="#ffffff" stroke="#c3bfae"/><text x="93" y="179" text-anchor="middle">accounts</text>
+    <rect x="163" y="160" width="127" height="30" fill="#ffffff" stroke="#c3bfae"/><text x="226" y="179" text-anchor="middle">applications</text>
+    <rect x="296" y="160" width="127" height="30" fill="#ffffff" stroke="#c3bfae"/><text x="359" y="179" text-anchor="middle">startups</text>
+    <rect x="429" y="160" width="121" height="30" fill="#ffffff" stroke="#c3bfae"/><text x="489" y="179" text-anchor="middle">labs</text>
+
+    <rect x="30" y="196" width="127" height="30" fill="#ffffff" stroke="#c3bfae"/><text x="93" y="215" text-anchor="middle">halls</text>
+    <rect x="163" y="196" width="127" height="30" fill="#ffffff" stroke="#c3bfae"/><text x="226" y="215" text-anchor="middle">mentors</text>
+    <rect x="296" y="196" width="127" height="30" fill="#ffffff" stroke="#c3bfae"/><text x="359" y="215" text-anchor="middle">mentorship</text>
+    <rect x="429" y="196" width="121" height="30" fill="#ffffff" stroke="#c3bfae"/><text x="489" y="215" text-anchor="middle">services</text>
+
+    <rect x="30" y="232" width="127" height="30" fill="#ffffff" stroke="#c3bfae"/><text x="93" y="251" text-anchor="middle">finance</text>
+    <rect x="163" y="232" width="127" height="30" fill="#ffffff" stroke="#c3bfae"/><text x="226" y="251" text-anchor="middle">feedback</text>
+    <rect x="296" y="232" width="127" height="30" fill="#ffffff" stroke="#c3bfae"/><text x="359" y="251" text-anchor="middle">audit</text>
+  </g>
+
+  <!-- data model note -->
+  <rect x="30" y="285" width="550" height="120" fill="#fdf6ea" stroke="#e07a1f" stroke-width="1.5"/>
+  <text x="46" y="308" font-size="12" font-weight="700" fill="#e07a1f">Startup record — normalized child tables</text>
+  <text x="46" y="330" font-size="10.5" fill="#55564f">founders &#183; employees &#183; financials &#183; funding rounds</text>
+  <text x="46" y="348" font-size="10.5" fill="#55564f">loans &#183; IPR &#183; bank details &#183; social links</text>
+  <text x="46" y="370" font-size="10.5" fill="#55564f">Dashboards/reports computed dynamically from</text>
+  <text x="46" y="388" font-size="10.5" fill="#55564f">these tables, not maintained by hand.</text>
+</svg>

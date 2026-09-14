@@ -1,0 +1,60 @@
+<svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="600" height="450" fill="#f6f4ee"/>
+  <!-- header -->
+  <rect x="0" y="0" width="600" height="42" fill="#16181a"/>
+  <text x="20" y="27" font-size="13" fill="#ffffff" font-weight="700">Data Pipeline Sentinel</text>
+  <text x="565" y="27" font-size="10" fill="#a9a89b" text-anchor="end">UI CONCEPT</text>
+
+  <!-- tabs -->
+  <g font-size="10.5">
+    <rect x="20" y="52" width="90" height="26" fill="#cc5500"/>
+    <text x="65" y="69" text-anchor="middle" fill="#ffffff">Overview</text>
+    <rect x="110" y="52" width="90" height="26" fill="#eeebe2"/>
+    <text x="155" y="69" text-anchor="middle" fill="#55564f">Pipelines</text>
+    <rect x="200" y="52" width="90" height="26" fill="#eeebe2"/>
+    <text x="245" y="69" text-anchor="middle" fill="#55564f">Alerts</text>
+  </g>
+
+  <!-- KPI cards -->
+  <g>
+    <rect x="20" y="94" width="132" height="80" fill="#ffffff" stroke="#c3bfae"/>
+    <text x="34" y="116" font-size="10" fill="#85847a">ACTIVE PIPELINES</text>
+    <text x="34" y="150" font-size="22" font-weight="700" fill="#16181a">—</text>
+
+    <rect x="164" y="94" width="132" height="80" fill="#ffffff" stroke="#c3bfae"/>
+    <text x="178" y="116" font-size="10" fill="#85847a">SUCCESS RATE</text>
+    <text x="178" y="150" font-size="22" font-weight="700" fill="#16181a">—</text>
+
+    <rect x="308" y="94" width="132" height="80" fill="#ffffff" stroke="#c3bfae"/>
+    <text x="322" y="116" font-size="10" fill="#85847a">FAILED RUNS</text>
+    <text x="322" y="150" font-size="22" font-weight="700" fill="#16181a">—</text>
+
+    <rect x="452" y="94" width="128" height="80" fill="#ffffff" stroke="#c3bfae"/>
+    <text x="466" y="116" font-size="10" fill="#85847a">AVG DURATION</text>
+    <text x="466" y="150" font-size="22" font-weight="700" fill="#16181a">—</text>
+  </g>
+
+  <!-- status table -->
+  <rect x="20" y="192" width="560" height="30" fill="#f2f0ec"/>
+  <text x="34" y="212" font-size="10.5" font-weight="700" fill="#55564f">PIPELINE</text>
+  <text x="260" y="212" font-size="10.5" font-weight="700" fill="#55564f">STATUS</text>
+  <text x="380" y="212" font-size="10.5" font-weight="700" fill="#55564f">LAST RUN</text>
+  <text x="490" y="212" font-size="10.5" font-weight="700" fill="#55564f">DURATION</text>
+
+  <g font-size="10.5" fill="#16181a">
+    <rect x="20" y="222" width="560" height="34" fill="#ffffff" stroke="#eeebe2"/>
+    <text x="34" y="244">ingestion_daily</text>
+    <circle cx="265" cy="239" r="4" fill="#4a8c4a"/>
+    <rect x="20" y="256" width="560" height="34" fill="#f6f4ee" stroke="#eeebe2"/>
+    <text x="34" y="278">bronze_to_silver</text>
+    <circle cx="265" cy="273" r="4" fill="#4a8c4a"/>
+    <rect x="20" y="290" width="560" height="34" fill="#ffffff" stroke="#eeebe2"/>
+    <text x="34" y="312">silver_to_gold</text>
+    <circle cx="265" cy="307" r="4" fill="#cc5500"/>
+    <rect x="20" y="324" width="560" height="34" fill="#f6f4ee" stroke="#eeebe2"/>
+    <text x="34" y="346">star_schema_build</text>
+    <circle cx="265" cy="341" r="4" fill="#4a8c4a"/>
+  </g>
+
+  <text x="20" y="400" font-size="10.5" fill="#85847a">Frontend-only concept — no backend or live data behind it.</text>
+</svg>

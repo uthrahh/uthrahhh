@@ -5,17 +5,11 @@ import { MediaFrame } from "@/components/MediaFrame";
 import { experience } from "@/lib/data/experience";
 import { communitySocial } from "@/lib/data/leadership";
 
-const WORK_EXPERIENCE_LOGOS = [
-  { src: "/kaartech.png", alt: "KaarTech" },
-  { src: "/aic-mark.png", alt: "AIC - Crescent Innovation and Incubation Council" },
-  { src: "/uandi.png", alt: "U&I Trust" },
-];
-
 export function ExperienceSection() {
   return (
     <section id="experience" className="scroll-mt-6 border-b border-border">
       <Container className="py-5 sm:py-6">
-        <SectionHeading eyebrow="Work Experience" logos={WORK_EXPERIENCE_LOGOS} />
+        <SectionHeading eyebrow="Work Experience" />
 
         <div className="mt-4 space-y-6">
           {experience.map((exp) => (

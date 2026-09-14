@@ -31,10 +31,12 @@ export function ProjectCard({
       {/* Scrim: fixed dark gradient regardless of site theme, so overlaid text
           stays legible even over busy, text-heavy screenshots — sustained
           dark opacity through the text zone (bottom ~45%), not just a thin
-          edge fade. */}
+          edge fade. A light backdrop-blur gives the text zone a frosted-glass
+          read without dropping its opacity — the screenshot stays visible
+          through the blur, but contrast for the text on top is unchanged. */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/95 from-0% via-black/60 via-45% to-transparent to-85% transition-opacity duration-300 group-hover:from-black/98"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/95 from-0% via-black/60 via-45% to-transparent to-85% backdrop-blur-[2px] transition-opacity duration-300 group-hover:from-black/98"
       />
 
       <div className="absolute inset-x-0 bottom-0 p-5">

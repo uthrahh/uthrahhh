@@ -40,7 +40,7 @@ export function SkillChip({ skill }: { skill: string }) {
       {open ? (
         <span
           id={panelId}
-          className="pointer-events-none absolute bottom-full left-1/2 z-20 mb-2 w-max max-w-[220px] -translate-x-1/2 border border-border bg-paper-raised px-3 py-2 text-left shadow-lg"
+          className="glass pointer-events-none absolute bottom-full left-1/2 z-20 mb-2 w-max max-w-[220px] -translate-x-1/2 rounded-md px-3 py-2 text-left backdrop-blur-md"
         >
           <span className="block font-mono text-[10px] uppercase tracking-widest text-ink-faint">
             Used in

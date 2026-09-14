@@ -101,8 +101,8 @@ export const projects: Project[] = [
       aspect: "16/9",
     },
     gallery: [
-      { kind: "screenshot", src: "/aic-erp-gallery-1.png", alt: "Startup application review workflow", aspect: "4/3" },
-      { kind: "architecture", src: "/aic-erp-gallery-2.png", alt: "AIC ERP RBAC and module architecture", aspect: "4/3" },
+      { kind: "screenshot", alt: "Startup application review workflow", aspect: "4/3" },
+      { kind: "architecture", src: "/aic-erp-gallery-2.svg", alt: "AIC ERP RBAC and module architecture", aspect: "4/3" },
     ],
     links: [
       { label: "Repository", href: "https://github.com/uthrahh/AIC-Enterprise-Resource-Planning", kind: "repo" },
@@ -124,8 +124,8 @@ export const projects: Project[] = [
         heading: "Solution & architecture",
         body: [
           "Built on Django with a PostgreSQL backend, organized into eleven Django apps by domain: accounts, applications, startups, labs, halls, mentors, mentorship, services, finance, feedback, and audit. Each module evolves independently without cross-contaminating models.",
-          "Role-based access control gates every module through decorators and middleware, with a permission matrix covering more than 30 resource types across the four authenticated roles (view, create, edit, manage, full access), enforced consistently rather than left to ad-hoc view-level checks.",
-          "The data model tracks a startup's full profile (founders, employees, financials, funding rounds, loans, IPR, bank details, social links) as normalized child tables under a single startup record, so dashboards and reports can be computed dynamically instead of maintained by hand.",
+          "Role-based access control gates every module through decorators and middleware. A permission matrix covers more than 30 resource types across four authenticated roles (view, create, edit, manage, full access), enforced consistently rather than left to ad-hoc view-level checks.",
+          "The data model tracks a startup's full profile (founders, employees, financials, funding rounds, loans, IPR, bank details, social links) as normalized child tables under a single startup record. Dashboards and reports are computed dynamically from these tables instead of maintained by hand.",
         ],
       },
       {
@@ -268,7 +268,6 @@ export const projects: Project[] = [
     status: "Completed",
     cover: {
       kind: "product",
-      src: "/last-mile-delivery-tracker-cover.png",
       alt: "Last-Mile Delivery Tracker customer app showing live delivery tracking",
       aspect: "16/9",
     },
@@ -464,7 +463,7 @@ export const projects: Project[] = [
     status: "In progress",
     cover: {
       kind: "architecture",
-      src: "/ev-fleet-lakehouse-platform-cover.png",
+      src: "/ev-fleet-lakehouse-platform-cover.svg",
       alt: "EV Fleet Lakehouse Medallion architecture: Bronze, Silver, Gold layers",
       aspect: "16/9",
     },
@@ -516,14 +515,14 @@ export const projects: Project[] = [
     status: "Proof of concept",
     cover: {
       kind: "architecture",
-      src: "/ai-powered-sap-erp-intelligence-assistant-cover.png",
+      src: "/ai-powered-sap-erp-intelligence-assistant-cover.svg",
       alt: "Query routing architecture between Databricks Genie and the RAG knowledge base",
       aspect: "16/9",
     },
     gallery: [
       {
         kind: "documentation",
-        src: "/ai-powered-sap-erp-intelligence-assistant-gallery-1.png",
+        src: "/ai-powered-sap-erp-intelligence-assistant-gallery-1.svg",
         alt: "Business glossary translating SAP fields to business terms",
         aspect: "4/3",
       },
@@ -541,7 +540,7 @@ export const projects: Project[] = [
       {
         heading: "Architecture",
         body: [
-          "Two complementary retrieval paths behind one orchestration layer: Databricks Genie queries structured SAP procurement tables in Unity Catalog (EKKO/purchase order headers, EKPO/line items, LFA1/vendor master, MARA/material master) for spend and transaction questions; a RAG layer over six knowledge-base documents answers policy and process questions.",
+          "Two complementary retrieval paths sit behind one orchestration layer. Databricks Genie queries structured SAP procurement tables in Unity Catalog (EKKO/purchase order headers, EKPO/line items, LFA1/vendor master, MARA/material master) for spend and transaction questions; a RAG layer over six knowledge-base documents answers policy and process questions.",
           "The knowledge base was purpose-built, not just dumped in: a procurement policy (approval thresholds, compliance rules), a purchase-order SOP (lifecycle stages), a vendor management policy (classification/eligibility), a business glossary translating SAP field names into business language, analytics definitions (so metrics are computed consistently across queries), and an FAQ/scenarios document calibrating response structure.",
           "The orchestration layer routes each query to Genie-only, RAG-only, or a hybrid of both. Hybrid routing matters most for compliance questions, which need a live number from Genie (this quarter's spend with a vendor, for example) evaluated against a policy rule from RAG (the approval threshold that applies).",
         ],
@@ -583,7 +582,6 @@ export const projects: Project[] = [
     status: "Proof of concept",
     cover: {
       kind: "code",
-      src: "/ai-data-engineering-assistant-cover.png",
       alt: "Streamlit chat interface with the intent classification prompt",
       aspect: "4/3",
     },
@@ -625,14 +623,13 @@ export const projects: Project[] = [
     status: "Completed",
     cover: {
       kind: "code",
-      src: "/capital-allocation-risk-optimization-cover.png",
+      src: "/capital-allocation-risk-optimization-cover.svg",
       alt: "Optimizer output: selected loans and properties under budget constraint",
       aspect: "16/9",
     },
     gallery: [
       {
         kind: "dashboard",
-        src: "/capital-allocation-risk-optimization-gallery-1.png",
         alt: "Risk-adjusted return distribution across the loan portfolio",
         aspect: "4/3",
       },
@@ -689,7 +686,6 @@ export const projects: Project[] = [
     status: "Product in development",
     cover: {
       kind: "screenshot",
-      src: "/budget-tracker-cover.png",
       alt: "Budget Tracker dashboard showing shared expenses and settlements",
       aspect: "4/3",
     },
@@ -732,7 +728,7 @@ export const projects: Project[] = [
     status: "Proof of concept",
     cover: {
       kind: "dashboard",
-      src: "/data-pipeline-sentinel-cover.png",
+      src: "/data-pipeline-sentinel-cover.svg",
       alt: "Data Pipeline Sentinel UI concept with KPI cards and pipeline status table",
       aspect: "4/3",
     },
