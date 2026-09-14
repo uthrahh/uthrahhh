@@ -11,7 +11,7 @@ const sections = [
   { id: "skills", label: "Skills", icon: "layers" },
   { id: "education", label: "Education", icon: "cap" },
   { id: "interests", label: "Interests", icon: "spark" },
-  // { id: "articles", label: "Articles", icon: "article" },
+  { id: "articles", label: "Articles", icon: "article" },
   { id: "languages", label: "Languages", icon: "globe" },
 ] as const;
 
